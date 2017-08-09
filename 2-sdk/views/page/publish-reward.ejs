@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="e代查发布">
+        <meta name="description" content="e代查发布">
+        <title>易保通</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/publish-reward/publish-reward.css">
+        <link href='http://www.oschina.net/js/2013/glDatePicker/glDatePicker.default.css' rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <%include ../widget/common/title%>
+        <div id="scrollWrap" class="scroll-wrap">
+            <div class="scroller">
+                <div id="" class="mod-publish-reward">
+                    <ul class="first-step ul-step">
+                        <li class="publish-select" id="locationSelect" keys="a,b,c" attrs="1,2,3" value="<%= data.location %>">
+                            <img src="/dest/img/page/publish/location.png" width="15" height="20"/>
+                            <label>目的地</label>
+                            <a class="arrow-right"></a>
+                            <span class="value-span"><%= data.location %></span>
+                        </li>
+                        <li id="deadLineTime" value="<%= data.deadline %>">
+                            <img src="/dest/img/page/publish/time.png" width="15" height="15"/>
+                            <label>截至日期</label>
+                            <a class="arrow-right"></a>
+                            <span class="value-span"><%= data.deadline %></span>
+                        </li>
+                        <li id="awardSelect" value="<%= data.award %>">
+                            <img src="/dest/img/page/publish/gift.png" width="15" height="15"/>
+                            <label>悬赏</label>
+                            <a class="arrow-right"></a>
+                            <span class="value-span">+<%= data.award %></span>
+                        </li>
+                        <li>
+                            <img src="/dest/img/page/publish/phone.png" width="15" height="15"/>
+                            <label for="phoneNum"></label><input type="text" class="form-input" id="phoneNum" value="<%= data.tel %>"/>
+                        </li>
+                    </ul>
+                    <ul class="second-step ul-step">
+                        <li id="researchType" value="<%= data.researchType %>">
+                            <img src="/dest/img/page/publish/location.png" width="15" height="20"/>
+                            <label>调查类型</label>
+                            <span class="value-span"><%= data.researchType %></span>
+                        </li>
+                        <li class="publish-select" id="typeSelect" attrs="identity, passport, others" keys="身份证, 护照, 其它" value="<%= data.personalType %>">
+                            <img src="/dest/img/page/publish/time.png" width="15" height="15"/>
+                            <label>证件类型</label>
+                            <a class="arrow-right"></a>
+                            <span class="value-span"><%= data.personalType %></span>
+                        </li>
+                        <li>
+                            <img src="/dest/img/page/publish/gift.png" width="15" height="15"/>
+                            <label for="cardNum">证件号码</label>
+                            <input type="text" class="form-input" id="cardNum" value="<%= data.cardNum %>"/>
+                        </li>
+                        <li>
+                            <img src="/dest/img/page/publish/phone.png" width="15" height="15"/>
+                            <label for="describe">任务描述</label>
+                            <textarea class="form-input form-textarea" id="describe"><%= data.describe %></textarea>
+                        </li>
+                    </ul>
+                    <div class="third-step">
+                        <img src="/dest/img/page/publish/photo.png" width="38"/>
+                        <p>添加照片</p>
+                    </div>
+                    <div class="forth-step">
+                        发布
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="datepicker-all">
+            <div class="datepicker-bottom"></div>
+        </div>
+        <div class="reward-step">
+            <h3><img src="/dest/img/page/publish/gift-active.png" width="15"/>悬赏</h3>
+            <p>系统默认奖励100福豆（不从个人账户扣减），你还可以从个人账户追加福豆。</p>
+            <ul class="choose-reward">
+                <li value="10">+10</li>
+                <li value="20">+20</li>
+                <li value="50">+50</li>
+                <li value="80">+80</li>
+                <li value="100">+100</li>
+            </ul>
+            <p class="total-prize">本次共奖励<span>0</span>福豆</p>
+        </div>
+        <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+        <script type="text/javascript" src="/dest/js/common/common.js"></script>
+        <script type="text/javascript" src="/dest/js/publish-reward/publish-reward.js"></script>
+    </body>
+</html>

@@ -1,0 +1,138 @@
+body{
+    background-color: #f3f3f3;
+}
+.scroll-wrap{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 45px;
+    bottom: 50px;
+    overflow: hidden;
+}
+.mod-banner{
+    height: 80px;
+    padding: 0 15px;
+    background-color: #22bf64;
+    border-top: 1px solid #25a25b;
+    display: -webkit-box;
+    display: box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-flex-flow: column;
+    flex-flow: column;
+    background-image: url(/dest/img/page/fudou/fudou-banner-bg.png);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: 115px 32px;
+    .total{
+        font-size: 14px;
+        color: #bce7ca;
+        margin-bottom: 10px;
+    }
+    .fudou{
+        display: -webkit-box;
+        display: box;
+        display: -webkit-flex;
+        display: flex;
+        margin-right: 5px;
+        -webkit-box-align: end;
+        box-align: end;
+        -webkit-align-items: flex-end;
+        align-items: flex-end;
+        .num{
+            font-size: 34px;
+            color: #fff;
+        }
+        .unit{
+            font-size: 14px;
+            color: #bce7ca;
+        }
+    }
+}
+.mod-detail{
+    padding: 0 15px;
+    background-color: #fff;
+    a{
+        color: #303037;
+        height: 47px;
+        display: -webkit-box;
+        display: box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        box-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        box-pack: justify;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        border-bottom: 1px solid #c5c8d2;
+        .left{
+            -webkit-box-flex: 1;
+            box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
+        }
+        .name{
+            font-size: 14px;
+        }
+        .time{
+            margin-top: 5px;
+            font-size: 10px;
+            color: #8b91a6;
+        }
+        .right{
+            display: -webkit-box;
+            display: box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .num{
+            font-size: 16px;
+            &.plus{
+                color: #22bf64;
+            }
+            &.minus{
+                color: #ff8800;
+            }
+        }
+        .arrow{
+            display: block;
+            position: relative;
+            width: 15px;
+            height: 100%;
+            &:before,
+            &:after{
+                content: "";
+                display: block;
+                width: 0;
+                height: 0;
+                border: 7px solid transparent;
+                top: 50%;
+                position: absolute;
+                margin-top: -7px;
+            }
+            &:before{
+                border-left-color: #b9bdca;
+                z-index: 1;
+                left: 5px;
+            }
+            &:after{
+                border-left-color: #fff;
+                z-index: 2;
+                left: 3px;
+            }
+        }
+    }
+}

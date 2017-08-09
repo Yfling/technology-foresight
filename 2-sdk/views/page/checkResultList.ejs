@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="e代查登陆">
+        <meta name="description" content="e代查登陆">
+        <title>易保通</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/checkResultList/checkResultList.css">
+        <script type="text/javascript">
+            conf = {
+                check: {
+                    id: "<%=data.id%>"
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <%include ../widget/common/title%>
+        <div id="header" class="mod-header">
+            <ul>
+                <li class="item company">公司</li>
+                <li class="item type">险种</li>
+                <li class="item num">保额</li>
+                <li class="item time">生效日期</li>
+            </ul>
+        </div>
+        <div id="scrollWrap" class="scroll-wrap">
+            <div class="scroller">
+                <div id="content" class="mod-content">
+                </div>
+            </div>
+        </div>
+        <%if(data.user.id==data.publisher.id){%>
+            <%=data.done%>
+            <%if(!data.done){%>
+            <a href="/checkDone?id=<%=data.id%>" id="interactive" class="mod-interactive">
+                <i></i>
+                <p>结束排查</p>
+            </a>
+            <%}else{%>
+            <a href="javascript:;" id="interactive" class="mod-interactive resulted">
+                <i></i>
+                <p>已结束排查</p>
+            </a>
+            <%}%>
+        <%}%>
+        <%include ../widget/common/menu%>
+        <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+        <script type="text/javascript" src="/dest/js/common/common.js"></script>
+        <script type="text/javascript" src="/dest/js/checkResultList/checkResultList.js"></script>
+    </body>
+</html>

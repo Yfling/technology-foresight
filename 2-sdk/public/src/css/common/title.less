@@ -1,0 +1,52 @@
+.mod-common-title{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 45px;
+    display: -webkit-box;
+    display: box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    background-color: #22bf64;
+    color: #fff;
+    font-size: 17px;
+    z-index: 1000;
+    .arrow{
+        display: block;
+        position: relative;
+        width: 45px;
+        height: 100%;
+        &:before,
+        &:after{
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            border: 9px solid transparent;
+            top: 50%;
+            position: absolute;
+            margin-top: -9px;
+        }
+        &:before{
+            border-right-color: #fff;
+            z-index: 1;
+            right: 18px;
+        }
+        &:after{
+            border-right-color: #2fc24f;
+            z-index: 2;
+            right: 14px;
+        }
+    }
+    .text{
+        -webkit-box-flex: 1;
+        box-flex: 1;
+        -webkit-flex: 1;
+        flex: 1;
+    }
+}

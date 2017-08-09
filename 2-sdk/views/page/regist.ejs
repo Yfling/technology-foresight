@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="e代查登陆">
+        <meta name="description" content="e代查登陆">
+        <title>易保通</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/regist/regist.css">
+    </head>
+    <body>
+        <div id="scrollWrap" class="scroll-wrap">
+            <div class="scroller">
+                <%include ../widget/common/logo%>
+                <div id="regist" class="mod-regist">
+                    <form name="registForm" action="regist" method="POST">
+                        <div class="inputs-wrap">
+                            <div class="tel-wrap input-wrap">
+                                <label>手机号码</label>
+                                <input type="tel" name="tel" autocomplete="off">
+                            </div>
+                            <div class="verify-wrap input-wrap">
+                                <label>验证码</label>
+                                <input type="text" name="verify">
+                                <button class="verify-btn fr" type="button">获取验证码</button>
+                            </div>
+                            <div class="passwd-wrap input-wrap">
+                                <label>密码</label>
+                                <input type="password" name="passwd" placeholder="8-20位非中文字符">
+                            </div>
+                            <div class="re-passwd-wrap input-wrap">
+                                <label>重复密码</label>
+                                <input type="password" name="rePasswd">
+                            </div>
+                        </div>
+                        <p class="agreement">注册即代表您接受<a href="/agreement">《注册服务条款》</a></p>
+                        <div class="button-wrap">
+                            <button type="submit">下一步</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="login" class="mod-login">
+                    <a href="/login">使用现有账户登录</a>
+                </div>
+            </div>
+        </div>
+        <%if(type=="post" && errMsg<0){%>
+            <div id="errMsg" class="mod-err-msg">
+                <div class="wrap<%if(errMsg==-1){ %> success<%}%>">
+                    <p class="msg">
+                        <%if(errMsg==-1){ %>该手机号已被注册<%}%>
+                        <%if(errMsg==-2){ %>验证码输入错误<%}%>
+                        <%if(errMsg==-3){ %>两次输入的密码不一致<%}%>
+                    </p>
+                    <button type="button">确定</button>
+                </div>
+            </div>
+        <%}%>
+        <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+        <script type="text/javascript" src="/dest/js/regist/regist.js"></script>
+    </body>
+</html>

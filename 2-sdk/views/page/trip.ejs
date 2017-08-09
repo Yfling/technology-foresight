@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="e代查登陆">
+        <meta name="description" content="e代查登陆">
+        <title>易保通</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/trip/trip.css">
+    </head>
+    <body>
+    <div id="headWrap">
+        <div class='tip'>
+            <div class='font'>
+                <div class='tip-sub back' onclick="history.back()"></div>
+                <div class='tip-sub icon'></div>
+                <div class='tip-sub paicha-text'>行程</div>
+            </div>
+         
+            <div class='center'>
+            <div class='tip-sub city'><%=user.zone%></div>
+            <div class='tip-sub arrow-white'></div>
+            </div>
+
+            
+
+            <div class='end'>
+                <div class='tip-sub search'>查找</div>
+                <a href="/publish/trip2" class='tip-sub publish'>发布</a>
+            </div>
+        </div>
+
+        
+        <div class='search-content'>
+            <div class="wrap">
+                <input class='search-input' type='text' placeholder='关键字' />
+                <div class='ok'>确认</div>
+                <div class='cancel'>取消</div>
+            </div>
+        </div>
+
+        <div class='search-gray'></div>
+        
+    </div>
+
+    <div class='body-wrap'>
+        <div id='scroller'>
+            <div class='nav'>
+                <div class='all'><span class='word'>进行</span>
+                    <div class='all-float'>
+                        <div class="all-sample" data-value='0'>进行中</div>
+                        <div class="all-sample" data-value='1'>全部</div>
+                        <div class="all-sample" data-value='2'>已完成</div>
+                        <div class="all-sample" data-value='3'>已过期</div>
+                    </div>
+                </div>         
+                <div class='nav-sub publish-time'>发布时间</div>         
+                <div class='nav-sub end-time'>截止时间</div>         
+       
+
+            </div>
+
+            <div id='list'>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div id='footerWrap'>
+        <div class='cancel'>取消选择</div>
+        <div class='sure'>认领</div>
+    </div>
+    <%include ../widget/common/menu%>
+    <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+    <script type="text/javascript" src="/dest/js/common/common.js"></script>
+    <script type="text/javascript" src="/dest/js/trip/trip.js"></script>
+    </body>
+</html>

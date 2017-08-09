@@ -1,0 +1,371 @@
+[{
+    "id": "1",
+    "name": "zhongguo",
+    "des": "中国人寿",
+    "icon": ""
+},{
+    "id": "2",
+    "name": "taipingyang",
+    "des": "太平洋人寿",
+    "icon": ""
+},{
+    "id": "3",
+    "name": "pingan",
+    "des": "平安人寿",
+    "icon": ""
+},{
+    "id": "4",
+    "name": "xinhua",
+    "des": "新华人寿",
+    "icon": ""
+},{
+    "id": "5",
+    "name": "taikang",
+    "des": "泰康人寿",
+    "icon": ""
+},{
+    "id": "6",
+    "name": "taiping",
+    "des": "太平人寿",
+    "icon": ""
+},{
+    "id": "7",
+    "name": "jianxin",
+    "des": "建信人寿",
+    "icon": ""
+},{
+    "id": "8",
+    "name": "tianan",
+    "des": "天安人寿",
+    "icon": ""
+},{
+    "id": "9",
+    "name": "guangdayongming",
+    "des": "光大永明",
+    "icon": ""
+},{
+    "id": "10",
+    "name": "minsheng",
+    "des": "民生人寿",
+    "icon": ""
+},{
+    "id": "11",
+    "name": "shengming",
+    "des": "生命人寿",
+    "icon": ""
+},{
+    "id": "12",
+    "name": "pinganyanglao",
+    "des": "平安养老",
+    "icon": ""
+},{
+    "id": "13",
+    "name": "zhongrong",
+    "des": "中融人寿",
+    "icon": ""
+},{
+    "id": "14",
+    "name": "hezhong",
+    "des": "合众人寿",
+    "icon": ""
+},{
+    "id": "15",
+    "name": "taipingyanglao",
+    "des": "太平养老",
+    "icon": ""
+},{
+    "id": "16",
+    "name": "renbaojiankang",
+    "des": "人保健康",
+    "icon": ""
+},{
+    "id": "17",
+    "name": "huaxia",
+    "des": "华夏人寿",
+    "icon": ""
+},{
+    "id": "18",
+    "name": "zhengde",
+    "des": "正德人寿",
+    "icon": ""
+},{
+    "id": "19",
+    "name": "xintai",
+    "des": "信泰人寿",
+    "icon": ""
+},{
+    "id": "20",
+    "name": "nongyin",
+    "des": "农银人寿",
+    "icon": ""
+},{
+    "id": "21",
+    "name": "changcheng",
+    "des": "长城人寿",
+    "icon": ""
+},{
+    "id": "22",
+    "name": "kunlunjiankang",
+    "des": "昆仑健康",
+    "icon": ""
+},{
+    "id": "23",
+    "name": "hexiejiankang",
+    "des": "和谐健康",
+    "icon": ""
+},{
+    "id": "24",
+    "name": "renbaoshouxian",
+    "des": "人保寿险",
+    "icon": ""
+},{
+    "id": "25",
+    "name": "guohua",
+    "des": "国华人寿",
+    "icon": ""
+},{
+    "id": "26",
+    "name": "guoshouyanglao",
+    "des": "国寿养老",
+    "icon": ""
+},{
+    "id": "27",
+    "name": "changjiangyanglao",
+    "des": "长江养老",
+    "icon": ""
+},{
+    "id": "28",
+    "name": "yingda",
+    "des": "英大人寿",
+    "icon": ""
+},{
+    "id": "29",
+    "name": "taikangyanglao",
+    "des": "泰康养老",
+    "icon": ""
+},{
+    "id": "30",
+    "name": "xingfu",
+    "des": "幸福人寿",
+    "icon": ""
+},{
+    "id": "31",
+    "name": "yangguang",
+    "des": "阳光人寿",
+    "icon": ""
+},{
+    "id": "32",
+    "name": "bainian",
+    "des": "百年人寿",
+    "icon": ""
+},{
+    "id": "33",
+    "name": "zhongyou",
+    "des": "中邮人寿",
+    "icon": ""
+},{
+    "id": "34",
+    "name": "anbang",
+    "des": "安邦人寿",
+    "icon": ""
+},{
+    "id": "35",
+    "name": "lian",
+    "des": "利安人寿",
+    "icon": ""
+},{
+    "id": "36",
+    "name": "qianhai",
+    "des": "前海人寿",
+    "icon": ""
+},{
+    "id": "37",
+    "name": "huahui",
+    "des": "华汇人寿",
+    "icon": ""
+},{
+    "id": "38",
+    "name": "dongwu",
+    "des": "东吴人寿",
+    "icon": ""
+},{
+    "id": "39",
+    "name": "zhujiang",
+    "des": "珠江人寿",
+    "icon": ""
+},{
+    "id": "40",
+    "name": "hongkang",
+    "des": "弘康人寿",
+    "icon": ""
+},{
+    "id": "41",
+    "name": "jixiang",
+    "des": "吉祥人寿",
+    "icon": ""
+},{
+    "id": "42",
+    "name": "anbangyanglao",
+    "des": "安邦养老",
+    "icon": ""
+},{
+    "id": "43",
+    "name": "bohai",
+    "des": "渤海人寿",
+    "icon": ""
+},{
+    "id": "44",
+    "name": "guolian",
+    "des": "国联人寿",
+    "icon": ""
+},{
+    "id": "45",
+    "name": "taibaoanlianjiankang",
+    "des": "太保安联健康",
+    "icon": ""
+},{
+    "id": "46",
+    "name": "shanghai",
+    "des": "上海人寿",
+    "icon": ""
+},{
+    "id": "47",
+    "name": "zhonghong",
+    "des": "中宏人寿",
+    "icon": ""
+},{
+    "id": "48",
+    "name": "zhongdeanlian",
+    "des": "中德安联",
+    "icon": ""
+},{
+    "id": "49",
+    "name": "gongyinansheng",
+    "des": "工银安盛",
+    "icon": ""
+},{
+    "id": "50",
+    "name": "xincheng",
+    "des": "信诚人寿",
+    "icon": ""
+},{
+    "id": "51",
+    "name": "jiaoyinkanglian",
+    "des": "交银康联",
+    "icon": ""
+},{
+    "id": "52",
+    "name": "zhongyi",
+    "des": "中意人寿",
+    "icon": ""
+},{
+    "id": "53",
+    "name": "youbang",
+    "des": "友邦人寿",
+    "icon": ""
+},{
+    "id": "54",
+    "name": "beidafangzheng",
+    "des": "北大方正人寿",
+    "icon": ""
+},{
+    "id": "55",
+    "name": "zhonghe",
+    "des": "中荷人寿",
+    "icon": ""
+},{
+    "id": "56",
+    "name": "zhongying",
+    "des": "中英人寿",
+    "icon": ""
+},{
+    "id": "57",
+    "name": "haikang",
+    "des": "海康人寿",
+    "icon": ""
+},{
+    "id": "58",
+    "name": "zhaoshangxinnuo",
+    "des": "招商信诺",
+    "icon": ""
+},{
+    "id": "59",
+    "name": "changsheng",
+    "des": "长生人寿",
+    "icon": ""
+},{
+    "id": "60",
+    "name": "hengan",
+    "des": "恒安标准",
+    "icon": ""
+},{
+    "id": "61",
+    "name": "ruitai",
+    "des": "瑞泰人寿",
+    "icon": ""
+},{
+    "id": "62",
+    "name": "zhongfa",
+    "des": "中法人寿",
+    "icon": ""
+},{
+    "id": "63",
+    "name": "huatai",
+    "des": "华泰人寿",
+    "icon": ""
+},{
+    "id": "64",
+    "name": "lujiazuiguotai",
+    "des": "陆家嘴国泰",
+    "icon": ""
+},{
+    "id": "65",
+    "name": "zhongmeiliantai",
+    "des": "中美联泰",
+    "icon": ""
+},{
+    "id": "66",
+    "name": "pinganjiankang",
+    "des": "平安健康",
+    "icon": ""
+},{
+    "id": "67",
+    "name": "zhonghangsanxing",
+    "des": "中航三星",
+    "icon": ""
+},{
+    "id": "68",
+    "name": "zhongxindadongfang",
+    "des": "中新大东方",
+    "icon": ""
+},{
+    "id": "69",
+    "name": "xinguanghaixiang",
+    "des": "新光海航",
+    "icon": ""
+},{
+    "id": "70",
+    "name": "huifeng",
+    "des": "汇丰人寿",
+    "icon": ""
+},{
+    "id": "71",
+    "name": "qunlong",
+    "des": "君龙人寿",
+    "icon": ""
+},{
+    "id": "72",
+    "name": "fuxingbaodexin",
+    "des": "复星保德信",
+    "icon": ""
+},{
+    "id": "73",
+    "name": "zhonghan",
+    "des": "中韩人寿",
+    "icon": ""
+},{
+    "id": "74",
+    "name": "dehuaangu",
+    "des": "德华安顾",
+    "icon": ""
+}]

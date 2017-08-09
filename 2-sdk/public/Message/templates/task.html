@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>task</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        background: url('../images/iframe-bg.jpg');
+        background-size: 100%;
+    }
+    
+    body,
+    html {
+        font-family: 'microsoft yahei', Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+    
+    .main .inner {
+        width: 400px;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 5px;
+    }
+    
+    .main .inner input {
+        display: inline-block;
+        width: 200px;
+        height: 35px;
+        margin-top: 15px;
+        padding-left: 10px;
+        border: 2px solid #000;
+        color: #666;
+    }
+    
+    #submit {
+        margin-top: 5px;
+        width: 100px;
+        height: 50px;
+        background-color: #058;
+        border: 1px solid #666;
+        color: #eee;
+        font-size: 18px;
+        border-radius: 10px;
+        transition: all 0.2s linear;
+        cursor: pointer;
+    }
+    
+    #submit:hover {
+        background-color: #fa9;
+        color: #000;
+    }
+    
+    #reset {
+        margin-top: 5px;
+        width: 100px;
+        height: 50px;
+        background-color: #058;
+        border: 1px solid #666;
+        color: #eee;
+        font-size: 18px;
+        border-radius: 10px;
+        transition: all 0.2s linear;
+        cursor: pointer;
+    }
+    
+    #reset:hover {
+        background-color: #fa9;
+        color: #000;
+    }
+    
+    #tip {
+        display: none;
+        color: #CC0E3E;
+        font-size: 24px;
+        padding-top: 5px;
+    }
+    </style>
+</head>
+
+<body>
+    <section class="main">
+        <div class="inner">
+            <h2>现在您可以在这里输入今天的安排</h2>
+            <p>
+                <input type="text" placeholder="任务名称……">
+            </p>
+            <p>
+                <input type="text" placeholder="预计完成时间……">
+            </p>
+            <p>
+                <input type="text" placeholder="合作人员……">
+            </p>
+            <p id="tip">
+                请填写完整后提交。
+            </p>
+            <button id="submit">提交</button>
+            <button id="reset">重置</button>
+        </div>
+    </section>
+</body>
+
+</html>

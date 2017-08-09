@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="e代查登陆">
+        <meta name="description" content="e代查登陆">
+        <title>易保通</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/mineInfo/mineInfo.css">
+        <script type="text/javascript">
+            conf = {
+                id: '<%=id%>'
+            };
+        </script>
+    </head>
+    <body>
+        <div id="scrollWrap" class="scroll-wrap">
+            <div class="scroller">
+                <div id="info" class="mod-info">
+                    <a href="javascript:history.back()" class="arrow"></a>
+                    <div class="stars">
+                        <div class="star" style="width:<%=star/5*100%>%"></div>
+                    </div>
+                    <div class="photo">
+                        <img width="56" height="56" src="<%=photo%>">
+                    </div>
+                    <p class="name"><%=name%></p>
+                    <p class="company">保险调查员 | <%=company%></p>
+                    <p class="tel"><i></i><a href="tel:<%=tel%>"><%=tel%></a></p>
+                </div>
+                <!--
+                <div id="tasks" class="mod-tasks">
+                    <div class="done">
+                        <p class="num"><%=doneTask%></p>
+                        <p class="text">完成任务</p>
+                    </div>
+                    <div class="published">
+                        <p class="num"><%=publishTask%></p>
+                        <p class="text">发布任务</p>
+                    </div>
+                </div>
+                -->
+                <%if(canJudge){%>
+                    <div id="judge" class="mod-judge">
+                        <div class="level">
+                            <p class="text">给对方打分</p>
+                            <ul class="stars">
+                                <li class="star"></li>
+                                <li class="star"></li>
+                                <li class="star"></li>
+                                <li class="star"></li>
+                                <li class="star"></li>
+                            </ul>
+                        </div>
+                        <div class="des">
+                            <p class="text">撰写评语：</p>
+                            <textarea rows=8 cols="40" placeholder="请留下您宝贵的意见和鼓励。"></textarea>
+                        </div>
+                    </div>
+                <%}%>
+                <div id="comment" class="mod-comment">
+
+                </div>
+            </div>
+        </div>
+        <div id="judgeBtn" class="mod-judge-btn hide">
+            <span class="btn not-judge">跳过并完成</span>
+            <span class="btn judge">发表评价</span>
+        </div>
+        <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+        <script type="text/javascript" src="/dest/js/common/common.js"></script>
+        <script type="text/javascript" src="/dest/js/mineInfo/mineInfo.js"></script>
+    </body>
+</html>

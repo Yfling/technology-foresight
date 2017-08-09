@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="CC商城">
+        <meta name="description" content="CC商城">
+        <title>CC商城</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/checkDetail/checkDetail1.css">
+    </head>
+    <body>
+        <div id="title" class="mod-title">
+            <a href="javascript:history.back();" class="arrow"></a>
+            <span class="text"><%=title%></span>
+            <%if(user.id==check.publisher.id){%>
+                <div class="interactive">
+                    <span class="trigger">
+                        <i></i>
+                    </span>
+                    <ul class="hide">
+                        <li class="edit">
+                            <a href="/publish/check2?id=<%=check.id%>">
+                                <i></i>
+                                <span>修改</span>
+                            </a>
+                        </li>
+                        <li class="delete">
+                            <a href="/delete/check?id=<%=check.id%>">
+                                <i></i>
+                                <span>删除</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            <%}%>
+        </div>
+        <div id="scrollWrap" class="scroll-wrap">
+            <div class="scroller">
+                <div id="about" class="mod-about">
+                    <h2><%=check.title%></h2>
+                    <p class="progress">
+                        完成进度<%=check.progress.finished%>/<%=check.progress.all%>
+                    </p>
+                    <div class="wrap">
+                        <p class="viewer">
+                            已被浏览<%=check.viewerNum%>次
+                        </p>
+                        <p class="publish-time">
+                            <%=check.publishTime%>
+                        </p>
+                    </div>
+                </div>
+                <div id="time" class="mod-time">
+                    <div class="left">
+                        <img widht="15" height="15" src="/dest/img/common/time-icon.png">
+                        <span class="text">截至日期</span>
+                    </div>
+                    <div class="right">
+                        <p class="time"><%=check.deadLine%></p>
+                    </div>
+                </div>
+                <div id="des" class="mod-des">
+                    <h4>描述</h4>
+                    <p class="text"><%=check.des%></p>
+                </div>
+                <%if(check.photos && check.photos.length){%>
+                <div id="photo" class="mod-photo">
+                    <h4>相关图片</h4>
+                    <ul class="images cf">
+                        <%for(var i=0; i<check.photos.length; i++){%>
+                            <li class="fl">
+                                <img src="<%=check.photos[i]%>">
+                            </li>
+                        <%}%>
+                    </ul>
+                </div>
+                <%}%>
+                <a href="/mineInfo?id=<%=check.publisher.id%>" id="person" class="mod-person">
+                    <div class="infos">
+                        <img width="30" height="30" src="/dest/img/common/default-photo.png">
+                        <div class="wrap">
+                            <p class="name">
+                                <span class="text">发布人：<%=check.publisher.name%></span>
+                                <%if(check.publisher.isAuthed){%>
+                                <span class="authed">认证</span>
+                                <%}%>
+                            </p>
+                            <p class="tel-addr">
+                                <%=check.publisher.tel%>-<%=check.publisher.addr%>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="ui-arrow">
+                    </div>
+                </a>
+            </div>
+        </div>
+        <%if(user.id==check.receiver.id){%>
+            <a href="<%if(check.resulted){%>/checkResultList?id=<%=check.id%><%}else if(check.received){%>/publishCheckResult?id=<%=check.id%><%}else{%>/receive?type=0<%}%>" id="interactive" class="mod-interactive<%if(check.resulted){%> resulted<%}else if(check.received){%> received<%}else{%> unreceived<%}%>">
+                <i></i>
+                <p><%if(check.resulted){%>查看排查结果<%}else if(check.received){%>发布排查结果<%}else{%>领取排查<%}%></p>
+            </a>
+        <%}else if(user.id==check.publisher.id){%>
+            <%if(check.resulted){%>
+                <a href="/checkResultList?id=<%=check.id%>" id="interactive" class="mod-interactive resulted">
+                    <i></i>
+                    <p>查看调查结果</p>
+                </a>
+            <%}%>
+        <%}else{%>
+            <a href="/receive?type=0" id="interactive" class="mod-interactive unreceived">
+                <i></i>
+                <p>领取排查</p>
+            </a>
+        <%}%>
+        <%include ../widget/common/menu%>
+        <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+        <script type="text/javascript" src="/dest/js/common/common.js"></script>
+        <script type="text/javascript" src="/dest/js/checkDetail/checkDetail.js"></script>
+    </body>
+</html>

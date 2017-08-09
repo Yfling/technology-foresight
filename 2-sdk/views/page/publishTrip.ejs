@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="e代查发布">
+        <meta name="description" content="e代查发布">
+        <title>易保通</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/publishTrip/publishTrip.css">
+        <script type="text/javascript">
+            conf = {
+                user: {
+                    city: '北京海淀'
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <%include ../widget/common/title%>
+        <div id="scrollWrap" class="scroll-wrap">
+            <div class="scroller">
+                <form id="form" class="mod-form" name="publishTrip" action="" method="POST">
+                    <div class="main">
+                        <div class="wrap dest">
+                            <label><i></i><span class="text">目的地</span></label>
+                            <div class="content">
+                                <input name="dest" placeholder="请输入目的地" readonly autocomplete="off" value="<%=data && data.dest || ''%>">
+                                <div class="ui-arrow"></div>
+                            </div>
+                        </div>
+                        <div class="wrap start date">
+                            <label><i></i><span class="text">开始日期</span></label>
+                            <div class="content">
+                                <input type="date" class="value-span" name="startDate" autocomplete="off" min="1888-09-23" max="5000-09-23" value="<%=data && data.startDate || ''%>">
+                            </div>
+                        </div>
+                        <div class="wrap start time">
+                            <label><i></i><span class="text">开始时间</span></label>
+                            <div class="content">
+                                <input type="time" class="value-span" name="startTime" autocomplete="off" value="<%=data && data.startTime || ''%>">
+                            </div>
+                        </div>
+                        <!-- <div class="wrap start time">
+                            <label><i></i><span class="text">开始时间</span></label>
+                            <div class="content">
+                                <div id="datetimepicker">
+                                    <input class="value-span" readonly name="startTime" autocomplete="off" placeholder="请输入开始时间" value="<%=data && data.startTime || ''%>">
+                                </div>
+                                <div class="ui-arrow"></div>
+                            </div>
+                        </div>-->
+                        <div class="wrap end date">
+                            <label><i></i><span class="text">结束日期</span></label>
+                            <div class="content">
+                                <input type="date" class="value-span" name="endDate" value="<%=data && data.endDate || ''%>">
+                            </div>
+                        </div>
+                        <div class="wrap end time">
+                            <label><i></i><span class="text">结束时间</span></label>
+                            <div class="content">
+                                <input type="time" class="value-span" name="endTime" autocomplete="off" value="<%=data && data.endTime || ''%>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrap des">
+                        <label>备注</label>
+                        <div class="content">
+                            <textarea name="des" placeholder="请输入备注信息" autocomplete="off"><%=data && data.des || ''%></textarea>
+                        </div>
+                    </div>
+                    <div class="wrap">
+                        <button type="submit">发布</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="datepicker-all">
+            <div class="datepicker-bottom"></div>
+        </div>
+        <%if(type=="post"){%>
+            <div id="errMsg" class="mod-err-msg">
+                <div class="wrap<%if(errMsg<0){%> error<%}else if(errMsg>0){%> success<%}%>">
+                    <p class="msg">
+                        <i></i>
+                        <%if(errMsg==-1){%>请输入目的地<%}%>
+                        <%if(errMsg==-2){%>请输入开始日期<%}%>
+                        <%if(errMsg==-3){%>数据保存失败，请重试<%}%>
+                        <%if(errMsg==-4){%>请输入开始时间<%}%>
+                        <%if(errMsg==-5){%>请输入截止日期<%}%>
+                        <%if(errMsg==-6){%>请输入截止时间<%}%>
+                    </p>
+                    <button class="ok" type="button">确定</button>
+                </div>
+            </div>
+        <%}%>
+        <%include ../widget/common/menu%>
+        <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+        <script type="text/javascript" src="/dest/js/common/common.js"></script>
+        <script type="text/javascript" src="/dest/js/publishTrip/publishTrip.js"></script>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="衣">
+        <meta name="description" content="衣">
+        <title>衣</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/investigation/investigation1.css">
+        <script type="text/javascript">
+            // conf.user = {
+            //     zone: '<%=user.zone%>'
+            // }
+        </script>
+    </head>
+    <body>
+    <div id="headWrap">
+        <div class='tip'>
+            <div class='font'>
+                <div class='tip-sub back' onclick="history.back()"></div>
+                <div class='tip-sub icon'></div>
+                <div class='tip-sub paicha-text'>衣</div>
+            </div>
+         
+            <div class='center'>
+            <div class='tip-sub city'><%=user.zone%></div>
+            <div class='tip-sub arrow-white'></div>
+            </div>
+
+            
+
+            <div class='end'>
+                <div class='tip-sub search'>查找</div>
+                <a href="/publish/check2" class='tip-sub publish'>发布</a>
+            </div>
+        </div>
+
+        
+        <div class='search-content'>
+            <div class="wrap">
+                <input class='search-input' type='text' placeholder='关键字' />
+                <div class='ok'>确认</div>
+                <div class='cancel'>取消</div>
+            </div>
+        </div>
+
+        <div class='search-gray'></div>
+        
+    </div>
+
+    <div class='body-wrap'>
+        <div id='scroller'>
+            <div class='nav'>
+                <div class='all'><span class='word'>进行</span>
+                    <div class='all-float'>
+                        <div class="all-sample" data-value='0'>进行中</div>
+                        <div class="all-sample" data-value='1'>全部</div>
+                        <div class="all-sample" data-value='2'>已完成</div>
+                        <div class="all-sample" data-value='3'>已过期</div>
+                    </div>
+                </div>         
+                <div class='nav-sub publish-time'>发布时间</div>         
+                <div class='nav-sub end-time'>截止时间</div>         
+                <div class='nav-sub progress'>进度</div>         
+
+            </div>
+
+            <div id='list'>
+
+
+            </div>
+        </div>
+    </div>
+    <%include ../widget/common/menu%>
+    <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+    <script type="text/javascript" src="/dest/js/common/common.js"></script>
+    <script type="text/javascript" src="/dest/js/investigation/investigation.js"></script>
+    </body>
+</html>

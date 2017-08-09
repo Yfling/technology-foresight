@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style>
+    body,html{
+        font-family: 'microsoft yahei',Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    
+    body,
+    html {
+        background: -webkit-linear-gradient(top, #ffffff 0%, #666666 100%);
+        background: linear-gradient(to bottom, #ffffff 0%, #666666 100%);
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .main {
+        padding-top: 30px;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .main form label {
+        display: block;
+        margin-top: 15px;
+    }
+    
+    .main form input {
+        height: 30px;
+        width: 150px;
+        font-size: 14px;
+        color: #666;
+    }
+    
+    .main form #subBtn {
+        border: none;
+        background-color: #729DB7;
+        font-weight: bolder;
+        width: 100px;
+        height: 40px;
+        font-size: 18px;
+        margin-top: 20px;
+        box-shadow: 1px 1px 1px #eee, -1px -1px 1px #eee;
+        transition: all 0.2s linear;
+        cursor: pointer;
+    }
+    
+    .main form #subBtn:hover {
+        background-color: #17374B;
+        color: #fff;
+    }
+    
+    .main form #tip {
+        margin-top: 15px;
+        font-size: 18px;
+        color: #FF2A00;
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <section class="main">
+        <h2>Login In</h2>
+        <form action="">
+            <label for="name">
+                账号：
+                <input type="text" name="name" placeholder="请输入账号" id="name" value="admin">
+            </label>
+            <label for="password">
+                密码：
+                <input type="password" name="password" placeholder="请输入密码" value="******" id="password">
+            </label>
+            <h2 id="tip">请输入帐密后登录。</h2>
+            <button id="subBtn">登录</button>
+        </form>
+    </section>
+    <script>
+
+    </script>
+</body>
+
+</html>

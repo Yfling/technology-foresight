@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="e代查登陆">
+        <meta name="description" content="e代查登陆">
+        <title>易保通</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/checkResultDetail/checkResultDetail.css">
+    </head>
+    <body>
+        <%include ../widget/common/title%>
+        <div id="scrollWrap" class="scroll-wrap">
+            <div class="scroller">
+                <div id="content" class="mod-content">
+                    <div class="wrap company">
+                        <p class="name">公司</p>
+                        <p class="result"><%=company%></p>
+                    </div>
+                    <%for(var i=0, len=types.length; i<len; i++){%>
+                    <div class="wrap type">
+                        <p class="name">险种<%=i+1%></p>
+                        <p class="result"><%=types[i].type%></p>
+                    </div>
+                    <div class="wrap num">
+                        <p class="name">保额<%=i+1%></p>
+                        <p class="result"><%=types[i].num%></p>
+                    </div>
+                    <div class="wrap time">
+                        <p class="name">保单生效日期<%=i+1%></p>
+                        <p class="result"><%=types[i].time%></p>
+                    </div>
+                    <div class="wrap isPay">
+                        <p class="name">是否理赔<%=i+1%></p>
+                        <p class="result"><%=types[i].isPay%></p>
+                    </div>
+                    <%}%>
+                    <div class="wrap des">
+                        <p class="name">排查结果</p>
+                        <p class="result"><%=des%></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%include ../widget/common/menu%>
+        <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+        <script type="text/javascript" src="/dest/js/common/common.js"></script>
+        <script type="text/javascript" src="/dest/js/checkResultDetail/checkResultDetail.js"></script>
+    </body>
+</html>

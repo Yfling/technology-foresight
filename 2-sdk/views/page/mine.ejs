@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="e代查登陆">
+        <meta name="description" content="e代查登陆">
+        <title>CC商城</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/mine/mine3.css">
+    </head>
+    <body>
+        <div id="scrollWrap" class="scroll-wrap">
+            <div class="scroller">
+                <a id="info" class="mod-info" href="/mineInfo">
+                    <div class="info-wrap">
+                        <img width="40" height="40" src="<%=info.photo%>">
+                        <div class="infos">
+                            <div class="name-wrap">
+                                <span class="name"><%=info.name%></span>
+                                <span class="confirmed">认证</span>
+                            </div>
+                            <p class="company"><%=info.company%></p>
+                        </div>
+                    </div>
+                    <div class="id-icon">
+                        <i></i>
+                    </div>
+                </a>
+                <div id="tasks" class="mod-tasks">
+                    <div class="all">
+                        <div class="check item">
+                            <div class="title">红包</div>
+                            <div class="sorts">
+                                <a href="/publish/all?type=0" class="sort publish">
+                                    <p class="num"><%=task.check.publish%></p>
+                                    <p class="text">未领取</p>
+                                </a>
+                                <a href="/received?type=0" class="sort pull">
+                                    <p class="num"><%=task.check.pull%></p>
+                                    <p class="text">已过期</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="reward item">
+                            <div class="title">抵用卷</div>
+                            <div class="sorts">
+                                <a href="/publish/all?type=1" class="sort publish">
+                                    <p class="num"><%=task.reward.publish%></p>
+                                    <p class="text">未领取</p>
+                                </a>
+                                <a href="/received?type=1" class="sort pull">
+                                    <p class="num"><%=task.reward.pull%></p>
+                                    <p class="text">已过期</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="trip item">
+                            <div class="title">我的交易</div>
+                            <div class="sorts">
+                                <a href="/publish/all?type=2" class="sort publish">
+                                    <p class="num"><%=task.trip.publish%></p>
+                                    <p class="text">发布</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="unfinish">
+                        <p class="title"><i></i>正在进行的求购任务</p>
+                        <div class="sorts">
+                            <a href="/publish" class="sort publish">
+                                <p class="num"><%=task.unfinish.publish%></p>
+                                <p class="text">我发布的</p>
+                            </a>
+                            <a href="/receive" class="sort pull">
+                                <p class="num"><%=task.unfinish.pull%></p>
+                                <p class="text">我领取的</p>
+                            </a>
+                            <a href="/unjudged" class="sort judge">
+                                <p class="num"><%=task.unfinish.judge%></p>
+                                <p class="text">待评价</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="other" class="mod-other wrap">
+                    <a href="/fudou" class="fudou row">
+                        <div class="left">
+                            <i></i>
+                            <span class="text">我的CC豆</span>
+                        </div>
+                        <div class="right">
+                            <span class="num"><%=fudou.num%></span>
+                            <span class="ui-arrow"></span>
+                        </div>
+                    </a>
+                    <a href="/notice" class="notice row">
+                        <div class="left">
+                            <i></i>
+                            <span class="text">系统通知</span>
+                        </div>
+                        <div class="right">
+                            <span class="num"><%=notice.num%></span>
+                            <span class="ui-arrow"></span>
+                        </div>
+                    </a>
+                </div>
+                <div id="change" class="mod-change wrap">
+                    <a href="/regist2" class="change-verify row">
+                        <div class="left">
+                            <i></i>
+                            <span class="text">修改认证信息</span>
+                        </div>
+                        <div class="right">
+                            <span class="ui-arrow"></span>
+                        </div>
+                    </a>
+                    <a href="/getPasswd2" class="change-passwd row">
+                        <div class="left">
+                            <i></i>
+                            <span class="text">修改登录密码</span>
+                        </div>
+                        <div class="right">
+                            <span class="ui-arrow"></span>
+                        </div>
+                    </a>
+                    <a href="/logout" class="logout row">
+                        <div class="left">
+                            <i></i>
+                            <span class="text">退出登录</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <%include ../widget/common/menu%>
+        <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+        <script type="text/javascript" src="/dest/js/common/common.js"></script>
+        <script type="text/javascript" src="/dest/js/mine/mine.js"></script>
+    </body>
+</html>

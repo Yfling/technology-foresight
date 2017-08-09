@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="e代查登陆">
+        <meta name="description" content="e代查登陆">
+        <title>易保通</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/regist2/regist2.css">
+    </head>
+    <body>
+        <div id="scrollWrap" class="scroll-wrap">
+            <div class="scroller">
+                <div id="tips" class="mod-tips">
+                    你还需要填下以下个人信息，并等待审核。只有审核通过的会员才有权限查看具体内容。
+                </div>
+                <div id="regist" class="mod-regist">
+                    <form name="registForm" action="" method="POST">
+                        <div class="inputs-wrap">
+                            <div class="photo-wrap">
+                                <label>半身免冠照片</label>
+                                <div class="file-wrap">
+                                    <img width="60" height="60" src="<%=data && data.photo || '/dest/img/page/regist2/head-photo.png'%>">
+                                    <input class="upload-input" type="file" accept="image/*; capture=camera" />
+                                    <input class="hidden" type="hidden" name="photo" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inputs-wrap">
+                            <div class="name-wrap input-wrap">
+                                <label>真实姓名</label>
+                                <input type="text" name="name" autocomplete="off" value="<%=data && data.name || ''%>">
+                            </div>
+                            <div class="company-wrap input-wrap">
+                                <label>所在公司</label>
+                                <div class="content">
+                                    <input type="text" name="company" autocomplete="off" readonly value="<%=data && data.company || ''%>">
+                                    <div class="ui-arrow"></div>
+                                </div>
+                            </div>
+                            <div class="input-wrap scope">
+                                <label>人员隶属</label>
+                                <div class="content">
+                                    <div class="item trunk<%if(data && data.scope=='trunk'){%> selected<%}%>">
+                                        <i></i>
+                                        <p>总公司</p>
+                                    </div>
+                                    <div class="item branch<%if(data && data.scope=='branch'){%> selected<%}%>">
+                                        <i></i>
+                                        <p>分公司</p>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="scope" autocomplete="off">
+                            </div>
+                            <div class="zone-wrap input-wrap">
+                                <label>所在地区</label>
+                                <div class="content">
+                                    <input type="text" readonly name="zone" autocomplete="off" value="<%=data && data.zone || ''%>">
+                                    <div class="ui-arrow"></div>
+                                </div>
+                            </div>
+                            <!-- <div class="tel-wrap input-wrap">
+                                <label>手机</label>
+                                <input type="tel" name="tel" autocomplete="off" value="<%=data && data.tel || ''%>">
+                            </div>
+ -->                            <div class="id-wrap input-wrap">
+                                <label>身份证号</label>
+                                <input type="text" name="id" autocomplete="off" value="<%=data && data.idNum || ''%>">
+                            </div>
+                            <div class="input-wrap des">
+                                <label>自我介绍</label>
+                                <div class="content">
+                                    <textarea name="des" placeholder="例如：生存调查、理赔-死亡调查、理赔-残疾失能调查、理赔-疾病医疗调查、理赔-意外伤害调查" autocomplete="off"><%=data && data.des || ''%></textarea>
+                                </div>
+                            </div>
+                            <div class="certify-wrap">
+                                <label>上传证件照</label>
+                                <p class="des">手持二代身份证靠近镜头，正面拍摄胸部以上，使身份证上的信息和头像清晰可见。</p>
+                                <div class="upload-wrap">
+                                    <img class="preview" width="105" height="105" class="demo" src="<%=data && data.certify || '/dest/img/page/regist2/certify-demo.jpg'%>">
+                                    <div class="file-wrap">
+                                        <div class="add-wrap">
+                                            <img width="36" height="29" src="/dest/img/page/regist2/certify-camera.png">
+                                            <p>添加照片</p>
+                                        </div>
+                                        <input class="upload-input" type="file" accept="image/*; capture=camera">
+                                        <input class="hidden" type="hidden" name="certify" value="<%=data && data.certify || '/dest/img/page/regist2/certify-demo.jpg'%>">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-wrap">
+                            <button type="submit">申请认证</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <%if(type=="post" && errMsg<0){%>
+            <div id="errMsg" class="mod-err-msg">
+                <div class="wrap<%if(errMsg<0){%> error<%}%>">
+                    <p class="msg">
+                        <%if(errMsg==-1){%>资料填写不完整<%}%>
+                        <%if(errMsg==-2){%>该身份证已被注册<%}%>
+                    </p>
+                    <button type="button">确定</button>
+                </div>
+            </div>
+        <%}%>
+        <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+        <script type="text/javascript" src="/dest/js/common/common.js"></script>
+        <script type="text/javascript" src="/dest/js/regist2/regist2.js"></script>
+    </body>
+</html>

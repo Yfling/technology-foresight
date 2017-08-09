@@ -1,0 +1,196 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/typography";
+body,
+html {
+    font-family: 'microsoft yahei', Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+header {
+    width: 100%;
+    min-height: 100px;
+    background-color: #058;
+    h2 {
+        color: #eee;
+        text-align: center;
+        font-size: 32px;
+        line-height: 100px;
+        span {
+            font-size: 14px;
+            line-height: normal;
+            position: absolute;
+            margin-top: 60px;
+        }
+    }
+}
+
+.main {
+    width: 100%;
+    background-color: #000;
+    overflow: hidden;
+    padding-bottom: 50px;
+    .middle {
+        background-color: #eee;
+        float: left;
+        width: 100%;
+        padding-bottom: 9999px;
+        margin-bottom: -9999px;
+        .inner {
+            margin: 0 200px;
+        }
+    }
+    .left {
+        float: left;
+        width: 200px;
+        background-color: #fa9;
+        padding-bottom: 9999px;
+        margin-bottom: -9999px;
+        margin-left: -100%;
+    }
+    .right {
+        float: left;
+        width: 200px;
+        background-color: #fa9;
+        padding-bottom: 9999px;
+        margin-bottom: -9999px;
+        margin-left: -200px;
+    }
+}
+
+.inner {
+    .result {
+        width: 60%;
+        margin: 15px auto;
+        text-align: center;
+        h2 {
+            font-size: 24px;
+            text-align: center;
+        }
+        .result-show {
+            display: none;
+            text-align: left;
+            p {
+                padding-top: 15px;
+            }
+        }
+    }
+    .task-window {
+        display: block;
+        width: 60%;
+        margin: 0 auto;
+        height: 300px;
+        border: 2px solid #666;
+    }
+}
+
+footer {
+    height: 200px;
+    width: 100%;
+    background-color: #27AAA0;
+    padding: 10px 0 20px;
+}
+
+.feeling-today {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    visibility: hidden;
+    @include opacity(0);
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    ul {
+        display: inline-block;
+        li {
+            width: 150px;
+            height: 130px;
+            @include inline-block-list-item();
+            img {
+                vertical-align: middle;
+                display: block;
+            }
+        }
+    }
+    h2 {
+        padding: 15px 0;
+        font-size: 24px;
+    }
+}
+
+.controller-list {
+    ul {
+        width: 100%;
+        li {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            a {
+                width: 150px;
+                height: 150px;
+                background-color: #058;
+                display: block;
+                text-align: center;
+                line-height: 150px;
+                border-radius: 50%;
+                margin: 20px auto;
+                @include unstyled-link();
+                cursor: pointer;
+                font-size: 24px;
+                transition:all 0.2s linear;
+            }
+            &:nth-child(1) a {
+                background-color: #B63434;
+                &:hover{
+                    background-color: #000;
+                    color: #fff;
+                }
+            }
+            &:nth-child(2) a {
+                background-color: #eee;
+                &:hover{
+                    background-color: #000;
+                    color: #fff;
+                }
+            }
+            &:nth-child(3) a {
+                background-color: #058;
+                &:hover{
+                    background-color: #000;
+                    color: #fff;
+                }
+            }
+            p {
+                display: block;
+                text-align: center;
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+.window-ctrl {
+    ul {
+        margin-top: 20px;
+    }
+    a {
+        display: block;
+        @include unstyled-link();
+        text-align: center;
+        background-color: #058;
+        border-radius: 10px;
+        padding: 5px 10px;
+        margin-bottom: 20px;
+        color: #fff;
+        cursor: pointer;
+        -webkit-transition: all 0.2s linear;
+        transition: all 0.2s linear;
+        &:hover {
+            background-color: #3CE5EC;
+            color: #000
+        }
+    }
+}

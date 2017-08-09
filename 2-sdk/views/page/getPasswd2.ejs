@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="e代查登陆">
+        <meta name="description" content="e代查登陆">
+        <title>易保通</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/getPasswd2/getPasswd2.css">
+    </head>
+    <body>
+        <div id="header" class="mod-header">
+            找回密码
+        </div>
+        <div id="scrollWrap" class="scroll-wrap">
+            <div class="scroller">
+                <div id="getPasswd" class="mod-get-passwd">
+                    <form name="getPasswdForm" action="" method="POST">
+                        <div class="inputs-wrap">
+                            <div class="passwd-wrap input-wrap">
+                                <label>新密码</label>
+                                <input type="password" name="passwd">
+                            </div>
+                            <div class="re-passwd-wrap input-wrap">
+                                <label>重复密码</label>
+                                <input type="password" name="re-passwd">
+                            </div>
+                        </div>
+                        <div class="button-wrap">
+                            <button type="submit">保存</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <%if(type=="post"){%>
+            <div id="errMsg" class="mod-err-msg">
+                <div class="wrap<%if(errMsg>0){%> success<%}%><%if(errMsg<0){%> error<%}%>">
+                    <p class="msg">
+                        <%if(errMsg==1){%>修改成功<%}%>
+                        <%if(errMsg==-1){%>两次输入的密码不一致<%}%>
+                        <%if(errMsg==-2){%><%}%>
+                        <%if(errMsg==-3){%><%}%>
+                    </p>
+                    <%if(errMsg>0){%>
+                        <a href="/login">重新登录</a>
+                    <%}%>
+                    <%if(errMsg<0){%>
+                        <button type="button">确定</button>
+                    <%}%>
+                </div>
+            </div>
+        <%}%>
+        <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+        <script type="text/javascript" src="/dest/js/getPasswd2/getPasswd2.js"></script>
+    </body>
+</html>

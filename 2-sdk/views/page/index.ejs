@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="e代查登陆">
+        <meta name="description" content="e代查登陆">
+        <title>CC商城</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/index/index2.css">
+    </head>
+    <body>
+        <div id="scrollWrap" class="scroll-wrap">
+            <div class="scroller">
+                <div id="banner" class="mod-banner">
+                    <div class="logo-wrap img-wrap">
+                        <img width="38" height="38" src="/dest/img/common/logo-42-43.png">
+                    </div>
+                    <div class="wrap">
+                        <div class="logo-text-wrap img-wrap" style="font-size: 15px;height: 20px">
+                            CC商城
+                        </div>
+                        <p>中国卖什么都不专业的电商</p>
+                    </div>
+                </div>
+                <div class="mod-unfinish">
+                    <p class="title"><i></i>您目前有<span style="cursor:pointer;color:red">1</span>个订单未支付</p>
+                    <div class="sorts">
+                        <a href="/publish" class="sort publish">
+                            <p class="num"><%=task.unfinish.publish%></p>
+                            <p class="text">我的收藏</p>
+                        </a>
+                        <a href="/receive" class="sort pull">
+                            <p class="num"><%=task.unfinish.pull%></p>
+                            <p class="text">购买记录</p>
+                        </a>
+                        <a href="/unjudged" class="sort judge">
+                            <p class="num"><%=task.unfinish.judge%></p>
+                            <p class="text">购物车</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="mod-entrance">
+                    <ul>
+                        <li>
+                            <a class="check" href="/pull/investigation">
+                                <div class="icon-wrap">
+                                    <img width="20" height="25" src="/dest/img/page/index/paicha-icon.png">
+                                    <%if (publish.check){%>
+                                        <i></i>
+                                    <%}%>
+                                </div>
+                                <div class="wrap">
+                                    <p class="title">衣</p>
+                                    <p class="des">男装、女装、童装统统一网打尽</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="reward" href="/pull/reward">
+                                <div class="icon-wrap">
+                                    <img width="24" height="29" src="/dest/img/page/index/xuanshang-icon.png">
+                                    <%if (publish.reward){%>
+                                        <i></i>
+                                    <%}%>
+                                </div>
+                                <div class="wrap">
+                                    <p class="title">食</p>
+                                    <p class="des">鲜货、零食、饮品吃货天堂</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="trip" href="/pull/trip">
+                                <div class="icon-wrap">
+                                    <img width="24" height="22" src="/dest/img/page/index/xingcheng-icon.png">
+                                    <%if (publish.trip){%>
+                                        <i></i>
+                                    <%}%>
+                                </div>
+                                <div class="wrap">
+                                    <p class="title">行</p>
+                                    <p class="des">凤凰、永久、吉安特大牌云集</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <%if(!isAuthed){%>
+        <div id="wait" class="mod-wait">
+            <div class="container">
+                <div class="banner">
+                    <img width="144" height="176" src="/dest/img/page/index/wait-banner-icon.png">
+                </div>
+                <div class="des">
+                    <p class="p1">管理员需要对您的信息进行审核</p>
+                    <p class="p2">审核完成后会以短信消息的方式通知您，</p>
+                    <p class="p3">审核通过将可以浏览全部功能。</p>
+                    <div class="progress">
+                        <div class="line">
+                            <span class="green"></span>
+                            <span class="gray"></span>
+                        </div>
+                        <div class="step">
+                            <div class="step1">
+                                <i></i>
+                                <p>注册完成</p>
+                            </div>
+                            <div class="step2">
+                                <i>2</i>
+                                <p>正在审核</p>
+                            </div>
+                            <div class="step3">
+                                <i>3</i>
+                                <p>开始使用</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%}%>
+        <%include ../widget/common/menu%>
+        <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+        <script type="text/javascript" src="/dest/js/common/common.js"></script>
+        <script type="text/javascript" src="/dest/js/index/index.js"></script>
+         <script type="text/javascript" src="/dest/js/lib/localSdk.js"></script>
+
+         <script type="text/javascript">
+            //   SDK 启动
+            window.mLocalSdk.startup();
+         </script>
+
+    </body>
+</html>

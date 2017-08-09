@@ -1,0 +1,190 @@
+body{
+    background-color: #f3f3f3;
+}
+.mod-receive{
+    height: 90px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    .nav{
+        height: 45px;
+        line-height: 45px;
+        background-color: #22bf64;
+        position: relative;
+        z-index: 1;
+        padding: 0 20px;
+        text-align: center;
+        color: #fff;
+    }
+    .arrow{
+        position: absolute;
+        left: 20px;
+        &:before,
+        &:after{
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            border: 9px solid transparent;
+            top: 50%;
+            position: absolute;
+            margin-top: 14px;
+        }
+        &:before{
+            border-right-color: #fff;
+            z-index: 1;
+            right: -11px;
+        }
+        &:after{
+            border-right-color: #2fc24f;
+            z-index: 2;
+            right: -14px;
+        }
+    }
+
+    .arrow-right{
+        position: absolute;
+        right: 20px;
+        &:before,
+        &:after{
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            border: 9px solid transparent;
+            top: 50%;
+            position: absolute;
+            margin-top: 12px;
+        }
+        &:before{
+            border-left-color: #999;
+            z-index: 1;
+            left: -11px;
+        }
+        &:after{
+            border-left-color: #fff;
+            z-index: 2;
+            left: -14px;
+        }
+    }
+    .tab{
+        height: 45px;
+        background-color: #fff;
+        color: #8b91a6;
+        display: -webkit-box;
+        display: box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        box-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        padding: 0 20px;
+        box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+        .item{
+            height: 42px;
+            line-height: 45px;
+            -webkit-box-flex: 1;
+            box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
+            display: -webkit-box;
+            display: box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            box-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-box-orient: vertical;
+            box-orient: vertical;
+            -webkit-flex-flow: column;
+            flex-flow: column;
+            margin: 0 20px;
+            border-bottom: 3px #fff solid;
+            &:last-child{
+                border-right: none;
+            }
+            &.cur{
+                border-bottom: 3px #21af58 solid;
+                color: #21af58;
+            }
+        }
+        .title{
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    }
+}
+.mod-main-receive{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 90px;
+    bottom: 55px;
+    .swiper-container,
+    .swiper-wrapper,
+    .swiper-slide{
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-wrapper{
+        display: -webkit-box;
+        display: box;
+        display: -webkit-flex;
+        display: flex;
+        position: relative;
+        z-index: 1;
+    }
+    .swiper-slide{
+        -webkit-flex-shrink: 0;
+        flex-shrink: 0;
+    }
+    .swiper-slide{
+        position: relative;
+    }
+    .scroller{
+        min-height: 100%;
+        background-color: #fff;
+    }
+    .pannel{
+        background: #fff;
+        margin-top: 7px;
+        width: 100%;
+        overflow: hidden;
+        .per-list{
+            display: block;
+            height: 40px;
+            padding: 10px 15px;
+            border-bottom: #dcdcdc 1px solid;
+            .content{
+                line-height: 22px;
+                color: #000;
+
+            }
+            .go-time,
+            .prize-num,
+            .percent{
+                color: #ff8800;
+                font-size: 12px;
+                line-height: 20px;
+                float: left;
+            }
+            .deadline{
+                color: #8b91a6;
+                font-size: 12px;
+                float: right;
+                line-height: 20px;
+            }
+        }
+    }
+    .check-pannel{
+
+    }
+}

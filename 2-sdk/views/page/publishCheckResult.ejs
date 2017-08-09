@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="e代查登陆">
+        <meta name="description" content="e代查登陆">
+        <title>易保通</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/publishCheckResult/publishCheckResult.css">
+    </head>
+    <body>
+        <%include ../widget/common/title%>
+        <div id="scrollWrap" class="scroll-wrap">
+            <div class="scroller">
+                <form id="form" class="mod-form" name="publish" method="POST" action="">
+                    <div class="bg">
+                        <div class="wrap company">
+                            <label>排查公司</label>
+                            <div class="content">
+                                <input name="company" autocomplete="off" placeholder="例如：中国人寿杭州分公司" value="<%=data.company%>" disabled>
+                            </div>
+                        </div>
+                        <div class="wrap insure">
+                            <label>是否投保</label>
+                            <div class="content">
+                                <div class="item yes">
+                                    <i></i>
+                                    <p>是</p>
+                                </div>
+                                <div class="item no">
+                                    <i></i>
+                                    <p>否</p>
+                                </div>
+                            </div>
+                            <input type="hidden" name="isInsured" autocomplete="off">
+                        </div>
+                        <div class="types" data-index='1'>
+                            <div class="wrap type hide">
+                                <label>险种</label>
+                                <div class="content">
+                                    <input name="type" autocomplete="off" placeholder="例如：意外保险">
+                                </div>
+                            </div>
+                            <div class="wrap num hide">
+                                <label>保额</label>
+                                <div class="content">
+                                    <input name="num" autocomplete="off" placeholder="点此输入投保金额">
+                                </div>
+                            </div>
+                            <!-- <div class="wrap time hide">
+                                <label>保单生效日期</label>
+                                <div class="content">
+                                    <div id="datetimepicker">
+                                        <input class="value-span" readonly name="time" autocomplete="off" placeholder="点此输入投保日期">
+                                    </div>
+                                </div>
+                            </div>
+ -->                            <div class="wrap end time hide">
+                                <label>保单生效日期</label>
+                                <div class="content">
+                                    <input type="date" class="value-span" name="time" placeholder="点此输入投保日期">
+                                </div>
+                            </div>
+                            <div class="wrap isPay hide">
+                                <label>是否理赔</label>
+                                <div class="content">
+                                    <div class="item yes">
+                                        <i></i>
+                                        <p>是</p>
+                                    </div>
+                                    <div class="item no">
+                                        <i></i>
+                                        <p>否</p>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="isPay" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="plus hide">
+                            <span class="icon fr">+</span>
+                        </div>
+                        <div class="wrap des hide">
+                            <label>排查情况</label>
+                            <textarea name="des" placeholder="文字描述" autocomplete="off"></textarea>
+                        </div>
+                    </div>
+                    <div class="bg upload hide">
+                        <div class="file-list hide">
+                            <div class="file-wrap">
+                                <div class="add-wrap">
+                                    <img width="32" height="25" src="/dest/img/page/regist2/certify-camera.png">
+                                </div>
+                                <input class="upload-input" type="file" accept="image/*; capture=camera">
+                            </div>
+                        </div>
+                        <div class="file-wrap2">
+                            <div class="add-wrap">
+                                <img width="37" height="29" src="/dest/img/common/camera-gray.png">
+                                <p>添加照片</p>
+                            </div>
+                            <input class="upload-input" type="file" accept="image/*; capture=camera" name="images[]" multiple>
+                        </div>
+                    </div>
+                    <button type="submit">发布</button>
+                </form>
+            </div>
+        </div>
+        <%include ../widget/common/menu%>
+        <%if(type=="post"){%>
+            <div id="errMsg" class="mod-err-msg">
+                <div class="wrap<%if(errMsg<0){%> error<%}else if(errMsg>0){%> success<%}%>">
+                    <p class="msg">
+                        <i></i>
+                        <%if(errMsg==1){%>发布成功<%}%>
+                        <%if(errMsg==-1){%>必须选择是否投保<%}%>
+                        <%if(errMsg==-2){%>必须选择险种<%}%>
+                        <%if(errMsg==-3){%>必须填写保额<%}%>
+                        <%if(errMsg==-4){%>必须填写保单生效日期<%}%>
+                        <%if(errMsg==-5){%>必须填写排查公司<%}%>
+                    </p>
+                    <%if(errMsg<0){%>
+                    <button class="ok" type="button">确定</button>
+                    <%}else if(errMsg>0){%>
+                    <div class="btns">
+                        <a class="more" href="/pull/investigation">去做其它排查</a>
+                        <a class="list" href="/checkResultList?id=<%=data.check.id%>">查看排查结果</a>
+                    </div>
+                    <%}%>
+                </div>
+            </div>
+        <%}%>
+        <div class="datepicker-bottom"></div>
+        <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+        <script type="text/javascript" src="/dest/js/common/common.js"></script>
+        <script type="text/javascript" src="/dest/js/publishCheckResult/publishCheckResult.js"></script>
+    </body>
+</html>

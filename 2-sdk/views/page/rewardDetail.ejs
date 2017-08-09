@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="e代查登陆">
+        <meta name="description" content="e代查登陆">
+        <title>易保通</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/rewardDetail/rewardDetail.css">
+        <script type="text/javascript">
+            conf = {
+                reward: {
+                    id: '<%=reward.id%>'
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="title" class="mod-title">
+            <a href="javascript:history.back();" class="arrow"></a>
+            <span class="text"><%=title%></span>
+            <%if(user.id==reward.publisher.id){%>
+                <div class="interactive">
+                    <span class="trigger">
+                        <i></i>
+                    </span>
+                    <ul class="hide">
+                        <li class="edit">
+                            <a href="/publish/reward2?id=<%=reward.id%>">
+                                <i></i>
+                                <span>修改</span>
+                            </a>
+                        </li>
+                        <li class="delete">
+                            <a href="/delete/reward?id=<%=reward.id%>">
+                                <i></i>
+                                <span>删除</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            <%}%>
+        </div>
+        <div id="scrollWrap" class="scroll-wrap">
+            <div class="scroller">
+                <div id="about" class="mod-about">
+                    <h2><%=reward.title%></h2>
+                    <p class="prize">奖励<%=reward.prize%>福豆</p>
+                    <div class="wrap">
+                        <p class="viewer">
+                            已被浏览<%=reward.viewerNum%>次
+                        </p>
+                        <p class="publish-time">
+                            <%=reward.publishTime%>
+                        </p>
+                    </div>
+                    <%if(reward.received){%>
+                    <div class="received">已被认领</div>
+                    <%}%>
+                </div>
+                <div id="dest" class="mod-dest">
+                    <h4>
+                        <i></i>
+                        <span>目的地</span>
+                    </h4>
+                    <div class="dest-wrap">
+                        <p class="dest"><%=reward.dest.dest%></p>
+                        <p class="detail"><%=reward.dest.detail%></p>
+                    </div>
+                </div>
+                <div id="time" class="mod-time">
+                    <div class="left">
+                        <img widht="15" height="15" src="/dest/img/common/time-icon.png">
+                        <span class="text">截至日期</span>
+                    </div>
+                    <div class="right">
+                        <p class="time"><%=reward.deadLine%></p>
+                    </div>
+                </div>
+                <div id="des" class="mod-des">
+                    <div class="item type">
+                        <h5>类型</h5>
+                        <p class="text"><%=reward.type%></p>
+                    </div>
+                    <div class="item source">
+                        <h5>来源</h5>
+                        <p class="text"><%=reward.source%></p>
+                    </div>
+                    <div class="item des">
+                        <h5>描述</h5>
+                        <p class="text"><%=reward.des%></p>
+                    </div>
+                </div>
+                <%if(reward.photos && reward.photos.length){%>
+                <div id="photo" class="mod-photo">
+                    <h4>相关图片</h4>
+                    <ul class="images cf">
+                        <%for(var i=0; i<reward.photos.length; i++){%>
+                            <li class="fl">
+                                <img src="<%=reward.photos[i]%>">
+                            </li>
+                        <%}%>
+                    </ul>
+                </div>
+                <%}%>
+                <a href="/mineInfo?id=<%=reward.publisher.id%>" id="publisher" class="mod-person">
+                    <div class="infos">
+                        <img width="30" height="30" src="/dest/img/common/default-photo.png">
+                        <div class="wrap">
+                            <p class="name">
+                                <span class="text">发布人：<%=reward.publisher.name%></span>
+                                <%if(reward.publisher.isAuthed){%>
+                                <span class="authed">认证</span>
+                                <%}%>
+                            </p>
+                            <p class="tel-addr">
+                                <%=reward.publisher.tel%>-<%=reward.publisher.addr%>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="ui-arrow">
+                    </div>
+                </a>
+                <%if(reward.receiver){%>
+                <a href="/mineInfo?id=<%=reward.receiver.id%>" id="receiver" class="mod-person">
+                    <div class="infos">
+                        <img width="30" height="30" src="/dest/img/common/default-photo.png">
+                        <div class="wrap">
+                            <p class="name">
+                                <span class="text">领取人：<%=reward.receiver.name%></span>
+                                <%if(reward.receiver.isAuthed){%>
+                                <span class="authed">认证</span>
+                                <%}%>
+                            </p>
+                            <p class="tel-addr">
+                                <%=reward.receiver.tel%>-<%=reward.receiver.addr%>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="ui-arrow">
+                    </div>
+                </a>
+                <%}%>
+            </div>
+        </div>
+        <%if(user.id==reward.publisher.id){%>
+            <%if(reward.received){%>
+            <div id="interactive" class="mod-interactive">
+                <a class="tel" href="tel:<%=reward.receiver.tel%>">
+                    <i></i>
+                    <p>电话</p>
+                </a>
+                <a class="message" href="sms:<%=reward.receiver.tel%>">
+                    <i></i>
+                    <p>短信</p>
+                </a>
+                <a href="<%if(reward.cofirmed){%>javascript:;<%}else if(reward.resulted){%>/confirmDone/reward?id=<%=reward.id%><%}else if(reward.received){%>javascript:;<%}else{%>javascript:;<%}%>" class="receive<%if(reward.resulted){%> resulted<%}else if(reward.received){%> received<%}else{%> unreceived<%}%>">
+                    <i></i>
+                    <p><%if(reward.cofirmed){%>已完成<%}else if(reward.resulted){%>确认完成<%}else if(reward.received){%><%}%></p>
+                </a>
+            </div>
+            <%}%>
+        <%}else if(user.id==reward.receiver.id){%>
+            <div id="interactive" class="mod-interactive">
+                <a class="tel" href="tel:<%=reward.publisher.tel%>">
+                    <i></i>
+                    <p>电话</p>
+                </a>
+                <a class="message" href="sms:<%=reward.publisher.tel%>">
+                    <i></i>
+                    <p>短信</p>
+                </a>
+                <a href="<%if(reward.resulted){%>javascript:;<%}else if(reward.received){%>javascript:;<%}else{%>javascript:;<%}%>" class="receive<%if(reward.resulted){%> resulted<%}else if(reward.received){%> received<%}else{%> unreceived<%}%>">
+                    <i></i>
+                    <p><%if(reward.resulted){%>已完成<%}else if(reward.received){%>已认领<%}else{%>认领<%}%></p>
+                </a>
+            </div>
+        <%}else{%>
+            <div id="interactive" class="mod-interactive">
+                <a class="tel" href="tel:<%=reward.publisher.tel%>">
+                    <i></i>
+                    <p>电话</p>
+                </a>
+                <a class="message" href="sms:<%=reward.publisher.tel%>">
+                    <i></i>
+                    <p>短信</p>
+                </a>
+                <a href="<%if(reward.resulted){%>javascript:;<%}else if(reward.received){%>javascript:;<%}else{%>javascript:;<%}%>" class="receive<%if(reward.resulted){%> resulted<%}else if(reward.received){%> received<%}else{%> unreceived<%}%>">
+                    <i></i>
+                    <p><%if(reward.resulted){%>已完成<%}else if(reward.received){%>已认领<%}else{%>认领<%}%></p>
+                </a>
+            </div>
+        <%}%>
+        <%include ../widget/common/menu%>
+        <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+        <script type="text/javascript" src="/dest/js/common/common.js"></script>
+        <script type="text/javascript" src="/dest/js/rewardDetail/rewardDetail.js"></script>
+    </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="e代查登陆">
+        <meta name="description" content="e代查登陆">
+        <title>易保通</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/tripDetail/tripDetail.css">
+    </head>
+    <body>
+        <div id="title" class="mod-title">
+            <a href="javascript:history.back();" class="arrow"></a>
+            <span class="text"><%=title%></span>
+            <%if(user.id==trip.publisher.id){%>
+                <div class="interactive">
+                    <span class="trigger">
+                        <i></i>
+                    </span>
+                    <ul class="hide">
+                        <li class="edit">
+                            <a href="/publish/trip?id=<%=trip.id%>">
+                                <i></i>
+                                <span>修改</span>
+                            </a>
+                        </li>
+                        <li class="delete">
+                            <a href="/delete/trip?id=<%=trip.id%>">
+                                <i></i>
+                                <span>删除</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            <%}%>
+        </div>
+        <div id="scrollWrap" class="scroll-wrap">
+            <div class="scroller">
+                <div id="about" class="mod-about">
+                    <div class="wrap">
+                        <p class="viewer">
+                            已被浏览<%=trip.viewerNum%>次
+                        </p>
+                        <p class="publish-time">
+                            <%=trip.publishTime%>
+                        </p>
+                    </div>
+                </div>
+                <div id="dest" class="mod-dest">
+                    <h4>
+                        <i></i>
+                        <span>目的地</span>
+                    </h4>
+                    <div class="dest-wrap">
+                        <p class="dest"><%=trip.dest.dest%></p>
+                        <p class="detail"><%=trip.dest.detail%></p>
+                    </div>
+                </div>
+                <div id="time" class="mod-time">
+                    <div class="left">
+                        <img widht="15" height="15" src="/dest/img/common/time-icon.png">
+                        <span class="text">截至日期</span>
+                    </div>
+                    <div class="right">
+                        <p class="time"><%=trip.deadLine%></p>
+                    </div>
+                </div>
+                <div id="des" class="mod-des">
+                    <h4>描述</h4>
+                    <p class="text"><%=trip.des%></p>
+                </div>
+                <a href="/mineInfo?id=<%=trip.publisher.id%>" id="person" class="mod-person">
+                    <div class="infos">
+                        <img width="30" height="30" src="/dest/img/common/default-photo.png">
+                        <div class="wrap">
+                            <p class="name">
+                                <span class="text">发布人：<%=trip.publisher.name%></span>
+                                <%if(trip.publisher.isAuthed){%>
+                                <span class="authed">认证</span>
+                                <%}%>
+                            </p>
+                            <p class="tel-addr">
+                                <%=trip.publisher.tel%>-<%=trip.publisher.addr%>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="ui-arrow">
+                    </div>
+                </a>
+            </div>
+        </div>
+        <%include ../widget/common/menu%>
+        <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+        <script type="text/javascript" src="/dest/js/common/common.js"></script>
+        <script type="text/javascript" src="/dest/js/tripDetail/tripDetail.js"></script>
+    </body>
+</html>

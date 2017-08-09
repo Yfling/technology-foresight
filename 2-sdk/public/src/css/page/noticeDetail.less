@@ -1,0 +1,123 @@
+body{
+    background-color: #f3f3f3;
+}
+.scroll-wrap{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 55px;
+    bottom: 50px;
+    overflow: hidden;
+}
+.mod-detail{
+    background-color: #fff;
+    position: relative;
+    color: #303037;
+    padding: 12px 15px;
+    .time{
+        font-size: 12px;
+        color: #8b91a6;
+        margin-bottom: 10px;
+    }
+    .des{
+        font-size: 14px;
+        line-height: 20px;
+    }
+}
+.mod-other{
+    margin-top: 10px;
+    background-color: #fff;
+    a{
+        margin: 0 15px;
+        height: 65px;
+        color: #303037;
+        display: -webkit-box;
+        display: box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        box-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        box-pack: justify;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        border-bottom: 1px solid #c5c8d2;
+        &:last-child{
+            border-bottom: none;
+        }
+        .left{
+            -webkit-box-flex: 1;
+            box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
+        }
+        .name{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 24px;
+            line-height: 24px;
+            display: -webkit-box;
+            display: box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .authed{
+            font-size: 11px;
+            color: #15aa68;
+            padding: 2px 6px;
+            border: 1px solid #15aa68;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        .time,
+        .contect{
+            font-size: 12px;
+            color: #8b91a6;
+            margin-top: 6px;
+        }
+        .right{
+            display: -webkit-box;
+            display: box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .arrow{
+            display: block;
+            position: relative;
+            width: 15px;
+            height: 100%;
+            &:before,
+            &:after{
+                content: "";
+                display: block;
+                width: 0;
+                height: 0;
+                border: 7px solid transparent;
+                top: 50%;
+                position: absolute;
+                margin-top: -7px;
+            }
+            &:before{
+                border-left-color: #b9bdca;
+                z-index: 1;
+                left: 5px;
+            }
+            &:after{
+                border-left-color: #fff;
+                z-index: 2;
+                left: 3px;
+            }
+        }
+    }
+}

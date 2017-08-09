@@ -1,0 +1,261 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 5, C:/Program Files (x86)/Koala/rubygems/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+/* line 22, C:/Program Files (x86)/Koala/rubygems/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1; }
+
+/* line 24, C:/Program Files (x86)/Koala/rubygems/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none; }
+
+/* line 26, C:/Program Files (x86)/Koala/rubygems/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 28, C:/Program Files (x86)/Koala/rubygems/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+/* line 30, C:/Program Files (x86)/Koala/rubygems/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none; }
+  /* line 103, C:/Program Files (x86)/Koala/rubygems/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
+
+/* line 32, C:/Program Files (x86)/Koala/rubygems/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none; }
+
+/* line 116, C:/Program Files (x86)/Koala/rubygems/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/* line 9, ../sass/screen.scss */
+body,
+html {
+  font-family: 'microsoft yahei', Arial, "Helvetica Neue", Helvetica, sans-serif; }
+
+/* line 14, ../sass/screen.scss */
+header {
+  width: 100%;
+  min-height: 100px;
+  background-color: #058; }
+  /* line 18, ../sass/screen.scss */
+  header h2 {
+    color: #eee;
+    text-align: center;
+    font-size: 32px;
+    line-height: 100px; }
+    /* line 23, ../sass/screen.scss */
+    header h2 span {
+      font-size: 14px;
+      line-height: normal;
+      position: absolute;
+      margin-top: 60px; }
+
+/* line 32, ../sass/screen.scss */
+.main {
+  width: 100%;
+  background-color: #000;
+  overflow: hidden;
+  padding-bottom: 50px; }
+  /* line 37, ../sass/screen.scss */
+  .main .middle {
+    background-color: #eee;
+    float: left;
+    width: 100%;
+    padding-bottom: 9999px;
+    margin-bottom: -9999px; }
+    /* line 43, ../sass/screen.scss */
+    .main .middle .inner {
+      margin: 0 200px; }
+  /* line 47, ../sass/screen.scss */
+  .main .left {
+    float: left;
+    width: 200px;
+    background-color: #fa9;
+    padding-bottom: 9999px;
+    margin-bottom: -9999px;
+    margin-left: -100%; }
+  /* line 55, ../sass/screen.scss */
+  .main .right {
+    float: left;
+    width: 200px;
+    background-color: #fa9;
+    padding-bottom: 9999px;
+    margin-bottom: -9999px;
+    margin-left: -200px; }
+
+/* line 66, ../sass/screen.scss */
+.inner .result {
+  width: 60%;
+  margin: 15px auto;
+  text-align: center; }
+  /* line 70, ../sass/screen.scss */
+  .inner .result h2 {
+    font-size: 24px;
+    text-align: center; }
+  /* line 74, ../sass/screen.scss */
+  .inner .result .result-show {
+    display: none;
+    text-align: left; }
+    /* line 77, ../sass/screen.scss */
+    .inner .result .result-show p {
+      padding-top: 15px; }
+/* line 82, ../sass/screen.scss */
+.inner .task-window {
+  display: block;
+  width: 60%;
+  margin: 0 auto;
+  height: 300px;
+  border: 2px solid #666; }
+
+/* line 91, ../sass/screen.scss */
+footer {
+  height: 200px;
+  width: 100%;
+  background-color: #27AAA0;
+  padding: 10px 0 20px; }
+
+/* line 98, ../sass/screen.scss */
+.feeling-today {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  visibility: hidden;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear; }
+  /* line 106, ../sass/screen.scss */
+  .feeling-today ul {
+    display: inline-block; }
+    /* line 108, ../sass/screen.scss */
+    .feeling-today ul li {
+      width: 150px;
+      height: 130px;
+      list-style-image: none;
+      list-style-type: none;
+      margin-left: 0;
+      display: inline-block;
+      vertical-align: middle;
+      *vertical-align: auto;
+      *zoom: 1;
+      *display: inline;
+      white-space: nowrap; }
+      /* line 112, ../sass/screen.scss */
+      .feeling-today ul li img {
+        vertical-align: middle;
+        display: block; }
+  /* line 118, ../sass/screen.scss */
+  .feeling-today h2 {
+    padding: 15px 0;
+    font-size: 24px; }
+
+/* line 125, ../sass/screen.scss */
+.controller-list ul {
+  width: 100%; }
+  /* line 127, ../sass/screen.scss */
+  .controller-list ul li {
+    width: 100%;
+    height: 200px;
+    position: relative; }
+    /* line 131, ../sass/screen.scss */
+    .controller-list ul li a {
+      width: 150px;
+      height: 150px;
+      background-color: #058;
+      display: block;
+      text-align: center;
+      line-height: 150px;
+      border-radius: 50%;
+      margin: 20px auto;
+      color: inherit;
+      text-decoration: inherit;
+      cursor: inherit;
+      cursor: pointer;
+      font-size: 24px;
+      transition: all 0.2s linear; }
+      /* line 6, C:/Program Files (x86)/Koala/rubygems/gems/compass-core-1.0.1/stylesheets/compass/typography/links/_unstyled-link.scss */
+      .controller-list ul li a:active, .controller-list ul li a:focus {
+        outline: none; }
+    /* line 145, ../sass/screen.scss */
+    .controller-list ul li:nth-child(1) a {
+      background-color: #B63434; }
+      /* line 147, ../sass/screen.scss */
+      .controller-list ul li:nth-child(1) a:hover {
+        background-color: #000;
+        color: #fff; }
+    /* line 152, ../sass/screen.scss */
+    .controller-list ul li:nth-child(2) a {
+      background-color: #eee; }
+      /* line 154, ../sass/screen.scss */
+      .controller-list ul li:nth-child(2) a:hover {
+        background-color: #000;
+        color: #fff; }
+    /* line 159, ../sass/screen.scss */
+    .controller-list ul li:nth-child(3) a {
+      background-color: #058; }
+      /* line 161, ../sass/screen.scss */
+      .controller-list ul li:nth-child(3) a:hover {
+        background-color: #000;
+        color: #fff; }
+    /* line 166, ../sass/screen.scss */
+    .controller-list ul li p {
+      display: block;
+      text-align: center;
+      font-size: 12px; }
+
+/* line 176, ../sass/screen.scss */
+.window-ctrl ul {
+  margin-top: 20px; }
+/* line 179, ../sass/screen.scss */
+.window-ctrl a {
+  display: block;
+  color: inherit;
+  text-decoration: inherit;
+  cursor: inherit;
+  text-align: center;
+  background-color: #058;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear; }
+  /* line 6, C:/Program Files (x86)/Koala/rubygems/gems/compass-core-1.0.1/stylesheets/compass/typography/links/_unstyled-link.scss */
+  .window-ctrl a:active, .window-ctrl a:focus {
+    outline: none; }
+  /* line 191, ../sass/screen.scss */
+  .window-ctrl a:hover {
+    background-color: #3CE5EC;
+    color: #000; }

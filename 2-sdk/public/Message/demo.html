@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheets/screen.css">
+</head>
+
+<body>
+    <header>
+        <h2>iframe-message Demo<span>By Hallmader</span></h2>
+    </header>
+    <section class="main">
+        <section class="middle">
+            <div class="inner">
+                <div class="result">
+                    <h2>您今天还没有任何任务。</h2>
+                    <div class="result-show">
+                        <h2></h2>
+                        <p></p>
+                        <p></p>
+                    </div>
+                </div>
+                <iframe class="task-window" src="templates/task.html"></iframe>
+            </div>
+        </section>
+        <aside class="left">
+            <div class="controller-list">
+                <ul>
+                    <li>
+                        <a href="javascript:;">Good</a>
+                        <p>如果您今天心情还不错……</p>
+                    </li>
+                    <li>
+                        <a href="javascript:;">Boring</a>
+                        <p>也许今天是枯燥无聊的一天……</p>
+                    </li>
+                    <li>
+                        <a href="javascript:;">Angry</a>
+                        <p>我觉得今天小动物应该尽量远离您……</p>
+                    </li>
+  
+                </ul>
+            </div>
+        </aside>
+        <aside class="right">
+            <div class="window-ctrl">
+                <ul>
+                    <li class="btn-login">
+                        <a href="javascript:;">登录后访问</a>
+                    </li>
+                    <li class="btn-intro">
+                        <a class="msgone" href="javascript:;">子页1</a>
+                        <a class="msgtwo" href="javascript:;">子页2</a>
+                        <a class="msgthree" href="javascript:;">子页3</a>
+                    </li>
+                    <li class="btn-changeStyle">
+                        <a href="javascript:;">子页主题切换</a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </section>
+    <footer>
+        <div class="feeling-today">
+            <ul>
+                <li><img src="images/good.png"></li>
+                <li><img src="images/good.png"></li>
+                <li><img src="images/good.png"></li>
+                <li><img src="images/good.png"></li>
+                <li><img src="images/good.png"></li>
+            </ul>
+            <h2>如果心情好的话，就要努力工作哦。</h2>
+        </div>
+    </footer>
+    <script src="js/demo.js"></script>
+</body>
+
+</html>

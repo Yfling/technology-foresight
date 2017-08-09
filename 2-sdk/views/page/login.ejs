@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="e代查登陆">
+        <meta name="description" content="e代查登陆">
+        <title>CC商城</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/login/login.css">
+    </head>
+    <body>
+        <div id="scrollWrap" class="scroll-wrap">
+            <div class="scroller">
+                <%include ../widget/common/logo%>
+                <div id="login" class="mod-login">
+                    <form name="loginForm" action="" method="POST">
+                        <div class="inputs-wrap">
+                            <div class="tel-wrap input-wrap">
+                                <label>手机号码</label>
+                                <input type="tel" name="tel" autocomplete="off">
+                            </div>
+                            <div class="passwd-wrap input-wrap">
+                                <label>密码</label>
+                                <input type="password" name="passwd">
+                                <a class="get-passwd-icon" href="/getPasswd">?</a>
+                            </div>
+                        </div>
+                        <div class="button-wrap">
+                            <button type="submit">登录</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="regist" class="mod-regist button-wrap">
+                    <a href="/regist">注册</a>
+                </div>
+            </div>
+        </div>
+        <%if(type=="post" && errMsg<0){%>
+            <div id="errMsg" class="mod-err-msg">
+                <div class="wrap<%if(errMsg<0){%> error<%}%>">
+                    <p class="msg">
+                        <%if(errMsg==-1){%>该手机号尚未注册，请先注册<%}%>
+                        <%if(errMsg==-2){%>密码输入错误<%}%>
+                    </p>
+                    <button class="ok" type="button">确定</button>
+                </div>
+            </div>
+        <%}%>
+        <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+        <script type="text/javascript" src="/dest/js/login/login.js"></script>
+    </body>
+</html>

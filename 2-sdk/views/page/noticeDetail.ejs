@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="e代查登陆">
+        <meta name="description" content="e代查登陆">
+        <title>易保通</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/noticeDetail/noticeDetail.css">
+    </head>
+    <body>
+        <%include ../widget/common/title%>
+        <div id="scrollWrap" class="scroll-wrap">
+            <div class="scroller">
+                <div id="detail" class="mod-detail">
+                    <p class="time"><%=time%></p>
+                    <p class="des"><%=des%></p>
+                </div>
+                <div id="other" class="mod-other">
+                    <a href="/<%=task.type%>Detail?id=<%=task.id%>">
+                        <div class="left">
+                            <p class="name">任务名称：<%=task.name%></p>
+                            <p class="time">发布时间：<%=task.publishTime%></p>
+                        </div>
+                        <div class="right">
+                            <div class="arrow"></div>
+                        </div>
+                    </a>
+                    <a href="/mineInfo?id=<%=receiver.id%>">
+                        <div class="left">
+                            <p class="name">
+                                <span class="text">领取人：<%=receiver.name%></span>
+                                <%if(receiver.isAuthed){%>
+                                    <span class="authed">认证</span>
+                                <%}%>
+                            </p>
+                            <p class="contect"><%=receiver.tel%>-<%=receiver.addr%></p>
+                        </div>
+                        <div class="right">
+                            <div class="arrow"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <%include ../widget/common/menu%>
+        <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+        <script type="text/javascript" src="/dest/js/common/common.js"></script>
+        <script type="text/javascript" src="/dest/js/noticeDetail/noticeDetail.js"></script>
+    </body>
+</html>

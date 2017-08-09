@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="e代查发布">
+        <meta name="description" content="e代查发布">
+        <title>易保通</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/publishCheck/publishCheck.css">
+        <script type="text/javascript">
+            conf = {
+                user: {
+                    city: '北京海淀'
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <%include ../widget/common/title%>
+        <div id="scrollWrap" class="scroll-wrap">
+            <div class="scroller">
+                <form id="form" class="mod-form" name="publishCheck" action="" method="POST">
+                    <div class="main">
+                        <div class="wrap title">
+                            <label>标题</label>
+                            <div class="content">
+                                <input name="title" placeholder="例如：意外保险" autocomplete="off" value="<%=data && data.title || ''%>">
+
+                            </div>
+                        </div>
+                        <div class="wrap sort">
+                            <label>类型</label>
+                            <div class="content">
+                                <select name="sort">
+                                    <option value="1"<%if(data && data.sort=='1'){%> selected<%}%>>重大事件</option>
+                                    <option value="2"<%if(data && data.sort=='2'){%> selected<%}%>>简单排查</option>
+                                </select>
+                                <div class="ui-arrow"></div>
+                            </div>
+                        </div>
+                        <!-- <div class="wrap source">
+                            <label>信息来源</label>
+                            <div class="content">
+                                <input name="source" placeholder="例如：媒体报道" autocomplete="off">
+                            </div>
+                        </div> -->
+                        <div class="wrap checked-person-name">
+                            <label>被调查人姓名</label>
+                            <div class="content">
+                                <input name="checkedPersonName" placeholder="例如：张三" value="<%=data && data.checkedPersonName || ''%>">
+                            </div>
+                        </div>
+                        <div class="wrap id-type">
+                            <label>证件类型</label>
+                            <div class="content">
+                                <select name="idType">
+                                    <option value="1"<%if(data && data.idType=='1'){%> selected<%}%>>身份证</option>
+                                    <option value="2"<%if(data && data.idType=='2'){%> selected<%}%>>驾驶证</option>
+                                    <option value="3"<%if(data && data.idType=='3'){%> selected<%}%>>军官证</option>
+                                    <option value="4"<%if(data && data.idType=='4'){%> selected<%}%>>护照</option>
+                                </select>
+                                <div class="ui-arrow"></div>
+                            </div>
+                        </div>
+                        <div class="wrap idNum">
+                            <label>证件号码</label>
+                            <div class="content">
+                                <input name="idNum" placeholder="" autocomplete="off" value="<%=data && data.idNum || ''%>">
+                            </div>
+                        </div>
+                        <div class="wrap insurance-num">
+                            <label>保额(万)</label>
+                            <div class="content">
+                                <input name="insuranceNum" placeholder="" autocomplete="off" value="<%=data && data.insuranceNum || ''%>">
+                            </div>
+                        </div>
+                        <!-- <div class="wrap time">
+                            <label>截止日期</label>
+                            <div class="content">
+                                <div id="datetimepicker">
+                                    <input class="value-span" readonly name="time" autocomplete="off" placeholder="请输入截止日期" value="<%=data && data.deadline || ''%>">
+                                </div>
+                                <div class="ui-arrow"></div>
+                            </div>
+                        </div>
+ -->                        <div class="wrap end time">
+                            <label><i></i><span class="text">截止日期</span></label>
+                            <div class="content">
+                                <input type="date" class="value-span" name="time" placeholder="请选择时间" value="<%=data && data.date || ''%>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrap des">
+                        <label>备注</label>
+                        <div class="content">
+                            <textarea name="des" placeholder="请输入备注信息" autocomplete="off"><%=data && data.des || ''%></textarea>
+                        </div>
+                    </div>
+                    <div class="upload">
+                        <div class="file-list<%if(!data || !data.images){%> hide<%}%>">
+                            <%if(data && data.images){%>
+                            <%for(var i=0, len=data.images.length; i<len; i++){%>
+                                <div class="file">
+                                    <img class="preview" src="<%=data.images[i]%>">
+                                    <input class="hidden" type="hidden" name="img<%=i%>" value="<%=data.images[i]%>">
+                                    <i></i>
+                                </div>
+                            <%}%>
+                            <%}%>
+                            <div class="file-wrap">
+                                <div class="add-wrap">
+                                    <img width="32" height="25" src="/dest/img/page/regist2/certify-camera.png">
+                                </div>
+                                <input class="upload-input" type="file" accept="image/*; capture=camera">
+                            </div>
+                        </div>
+                        <div class="file-wrap2<%if(data && data.images){%> hide<%}%>">
+                            <div class="add-wrap">
+                                <img width="37" height="29" src="/dest/img/common/camera-gray.png">
+                                <p>添加照片</p>
+                            </div>
+                            <input class="upload-input" type="file" accept="image/*; capture=camera" name="images[]" multiple>
+                        </div>
+                    </div>
+                    <div class="scope-selector">
+                        <div class="wrap scope">
+                            <label>发布范围</label>
+                            <div class="content">
+                                <div class="item trunk<%if(data && data.scope=='trunk'){%> selected<%}%>">
+                                    <i></i>
+                                    <p>总公司</p>
+                                </div>
+                                <div class="item branch<%if(data && data.scope=='branch'){%> selected<%}%>">
+                                    <i></i>
+                                    <p>分公司</p>
+                                </div>
+                            </div>
+                            <input type="hidden" name="scope" autocomplete="off">
+                        </div>
+                        <div class="wrap branch-city<%if(!data || data.scope=='trunk'){%> hide<%}%>">
+                            <label>分公司所在地</label>
+                            <div class="content">
+                                <input name="branchCity" placeholder="" autocomplete="off" readonly value=<%=data && data.branchCity || ''%>>
+                            <div class="ui-arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrap button">
+                        <button type="submit">发布</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="datepicker-all">
+            <div class="datepicker-bottom"></div>
+        </div>
+        <%if(type=="post" && errMsg < 0){%>
+            <div id="errMsg" class="mod-err-msg">
+                <div class="wrap<%if(errMsg<0){%> error<%}else if(errMsg>0){%> success<%}%>">
+                    <p class="msg">
+                        <i></i>
+                        <%if(errMsg==-1){%>请填写标题<%}%>
+                        <%if(errMsg==-2){%>请输入截止日期<%}%>
+                        <%if(errMsg==-3){%>请输入被调查人姓名<%}%>
+                        <%if(errMsg==-4){%>请输入证件号码<%}%>
+                        <%if(errMsg==-5){%>请输入保额<%}%>
+                        <%if(errMsg==-6){%>请选择发布范围<%}%>
+                        <%if(errMsg==-7){%>数据保存失败，请重试<%}%>
+                    </p>
+                    <button class="ok" type="button">确定</button>
+                </div>
+            </div>
+        <%}%>
+        <%include ../widget/common/menu%>
+        <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+        <script type="text/javascript" src="/dest/js/common/common.js"></script>
+        <script type="text/javascript" src="/dest/js/publishCheck/publishCheck.js"></script>
+    </body>
+</html>

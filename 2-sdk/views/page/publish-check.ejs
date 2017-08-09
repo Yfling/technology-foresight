@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chaset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="format-detection" content="telephone=no; email=no" />
+        <meta name="keywords" content="e代查发布">
+        <meta name="description" content="e代查发布">
+        <title>易保通</title>
+        <link rel="stylesheet" type="text/css" href="/dest/css/lib/lib.css">
+        <link rel="stylesheet" type="text/css" href="/dest/css/publish-check/publish-check.css">
+    </head>
+    <body>
+        <%include ../widget/common/title%>
+        <div id="scrollWrap" class="scroll-wrap">
+            <div class="scroller">
+                <div id="" class="mod-publish-check">
+                    <ul class="first-step ul-step">
+                        <li class="publish-select" id="titleSelect" keys="a,b,c" attrs="1,2,3" value="<%= data.title %>">
+                            <img src="/dest/img/page/publish/location.png" width="15" height="20"/>
+                            <label>标题</label>
+                            <a class="arrow-right"></a>
+                            <span class="value-span"><%= data.title %></span>
+                        </li>
+                        <li id="deadLineTime" value="<%= data.deadline %>">
+                            <img src="/dest/img/page/publish/time.png" width="15" height="15"/>
+                            <label>截至日期</label>
+                            <a class="arrow-right"></a>
+                            <span class="value-span"><%= data.deadline %></span>
+                        </li>
+                    </ul>
+                    <ul class="second-step ul-step">
+                        <li>
+                            <img src="/dest/img/page/publish/phone.png" width="15" height="15"/>
+                            <label for="describe">备注</label>
+                            <textarea class="form-input form-textarea" id="describe"><%= data.describe %></textarea>
+                        </li>
+                    </ul>
+                    <div class="forth-step">
+                        发布
+                    </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="datepicker-all">
+            <div class="datepicker-bottom"></div>
+        </div>
+        <script type="text/javascript" src="/dest/js/lib/lib.js"></script>
+        <script type="text/javascript" src="/dest/js/common/common.js"></script>
+        <script type="text/javascript" src="/dest/js/publish-check/publish-check.js"></script>
+    </body>
+</html>
