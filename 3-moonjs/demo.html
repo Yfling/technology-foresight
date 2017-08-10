@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/moonjs"></script>
+</head>
+<body>
+	<div id="app1">
+	  <p style="color: {{color}}">Change my Color!</p>
+	</div>
+</body>
+
+<script>
+// Production Build
+// const Moon = require("moonjs");
+
+// Development Build
+// const Moon = require("moonjs/dist/moon.js");
+const app1 = new Moon({
+  el: "#app1",
+  data: {
+    color: "blue"
+  }
+});
+// app1.set('color', 'green')
+app1.set('count', 1);
+app1.set('count', 2);
+app1.set('count', 3);
+
+
+
+</script>
+</html>
