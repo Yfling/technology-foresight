@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="app1">
+  <my-component></my-component>
+</div>
+
+<script src="https://unpkg.com/moonjs"></script>
+<script>
+Moon.component('my-component', {
+  template: "<p>This is a Component!</p>"
+});
+
+const app1 = new Moon({
+  el: "#app1"
+});
+
+</script>
+</body>
+</html>

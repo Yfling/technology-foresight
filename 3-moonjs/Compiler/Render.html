@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+
+<script src="https://unpkg.com/moonjs"></script>
+<script>
+new Moon({
+  render: function(m) {
+    return m('h1', {attrs: {}}, {shouldRender: false}, m("#text", {shouldRender: false}, "Hello Moon!"));
+    // same as <h1>Hello Moon!</h1>
+  }
+});
+
+Moon.compile("<p>Some HTML</p>");
+
+</script>
+</body>
+</html>
