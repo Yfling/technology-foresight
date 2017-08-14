@@ -1,4 +1,7 @@
 # Promise实现思路讲解
+参考资料：
+[剖析Promise内部结构](https://github.com/xieranmaya/blog/issues/3)
+[史上最易读懂的 Promise 实现](https://zhuanlan.zhihu.com/p/21834559) 
 
 ## Promise实现的主要模块：
 1. Promise只有一个then方法
