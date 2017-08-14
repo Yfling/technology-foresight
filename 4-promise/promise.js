@@ -13,10 +13,23 @@ function Promise(executor) {
   that.onRejectedCallback = [];  // Promise reject时的回掉函数集，因为在Promise结束之前可能有多个回调添加到它上面
 
   function resolve(value) {
-    // TODO
+    if (that.status === 'pending') {
+      that.status = 'resolved';
+      that.data = value;
+
+      for (var i = 0; i < that.onResolvedCallback.length; i++) {
+        that.onResolvedCallback[i](value);
+      }
+    }
   }
   function reject(reason) {
-    // TODO
+    if (that.status === 'pending') {
+      that.status = 'reject';
+      that.data = reason;
+      for (var i = 0; i < that.onRejectedCallback.length; i++) {
+        that.onRejectedCallback[i](reason);
+      }
+    }
   }
 
   // 考虑到执行executor的过程中有可能出错，所以我们用try/catch块给包起来，并且在出错后以catch到的值reject掉这个Promise
