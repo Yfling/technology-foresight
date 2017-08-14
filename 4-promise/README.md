@@ -1,14 +1,14 @@
-#Promise实现思路讲解
+# Promise实现思路讲解
 
-##Promise实现的主要模块：
+## Promise实现的主要模块：
 1. Promise只有一个then方法
 2. then方法会返回一个新的Promise
 3. 不同Promise之间可以相互调用
 4. Promise的初始状态为pending,它可以由此状态转换为fulfilled(resolved/rejected),一旦状态确定，就不可以再次转换为其他状态。
 
 
-##实现具体思路
-####1. 实现一个Promise的构造函数
+## 实现具体思路
+#### 1. 实现一个Promise的构造函数
 ```
 // Promise构造函数接收一个executor函数，executor函数执行完同步或异步操作后，调用它的两个参数resolve和reject
 var promise = new Promise(function(resolve, reject) {
@@ -73,7 +73,7 @@ function Promise(executor) {
   }
 }
 ```
-####2.实现then方法
+#### 2.实现then方法
 ```
 /**
  * then方法
@@ -168,7 +168,7 @@ Promise.prototype.then = function(onResolved, onRejected) {
 }
 ```
 
-####3.不同Promise之间的交互(实现值的穿透)
+#### 3.不同Promise之间的交互(实现值的穿透)
 想要实现的效果：
 我们希望下面这段代码
 ```
