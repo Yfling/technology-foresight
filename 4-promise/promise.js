@@ -40,3 +40,36 @@ function Promise(executor) {
     reject(e);
   }
 }
+
+/**
+ * then方法
+ * @param  {Object} onResolve  Promise成功后的回调
+ * @param  {Object} onRejected Promise失败后的回调
+ * @return {Promise}  返回一个Promise对象
+ */
+Promise.prototype.then = function(onResolved, onRejected) {
+  var that = this;
+  var promise2;  // 初始化定义返回后的promise对象
+
+  // 根据标准，如果then的参数不是function，则我们需要忽略它，此处以如下方式处理
+  onResolved = typeof onResolved === 'function' ? onResolved : function(v) {}；
+  onRejected = typeof onRejected === 'function' ? onRejected : function(r) {};
+
+  if (that.status === 'resolved') {
+    return promise2 = new Promise(function(resolve, reject) {
+
+    })
+  }
+
+  if (that.status === 'rejected') {
+    return promise2 = new Promise(function(resolve, reject) {
+
+    })
+  }
+
+  if (that.status === 'pending') {
+    return promise2 = new Promise(function(resolve, reject) {
+      
+    })
+  }
+}
