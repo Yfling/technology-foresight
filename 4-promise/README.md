@@ -9,8 +9,7 @@
 
 ## 实现具体思路
 #### 1. 实现一个Promise的构造函数
-```
-
+```javascript
 // Promise构造函数接收一个executor函数，executor函数执行完同步或异步操作后，调用它的两个参数resolve和reject
 var promise = new Promise(function(resolve, reject) {
   /*
@@ -21,8 +20,7 @@ var promise = new Promise(function(resolve, reject) {
 
 ```
 
-```
-
+```javascript
 // Promise的构造函数：
 // Promise构造函数接收一个executor函数，executor函数执行完同步或异步操作后，调用它的两个参数resolve和reject
 function Promise(executor) {
@@ -74,11 +72,9 @@ function Promise(executor) {
     reject(e);
   }
 }
-
 ```
 #### 2.实现then方法
-```
-
+```javascript
 /**
  * then方法
  * @param  {Object} onResolve  Promise成功后的回调
@@ -170,25 +166,21 @@ Promise.prototype.then = function(onResolved, onRejected) {
     })
   }
 }
-
 ```
 
 #### 3.不同Promise之间的交互(实现值的穿透)
 想要实现的效果：
 我们希望下面这段代码
-```
-
+```javascript
 new Promise(resolve=>resolve(8))
   .then()
   .catch()
   .then(function(value) {
     alert(value)
   })
-
 ```
 跟下面这段代码的行为是一样的
-```
-
+```javascript
 new Promise(resolve=>resolve(8))
   .then(function(value){
     return value
@@ -199,15 +191,12 @@ new Promise(resolve=>resolve(8))
   .then(function(value) {
     alert(value)
   })
-
 ```
 所以如果想要把then的实参留空且让值可以穿透到后面，意味着then的两个参数的默认值分别为function(value) {return value}，function(reason) {throw reason}。
 所以我们只需要把then里判断onResolved和onRejected的部分改成如下即可：
-```
-
+```javascript
 onResolved = typeof onResolved === 'function' ? onResolved : function(value) {return value}
 onRejected = typeof onRejected === 'function' ? onRejected : function(reason) {throw reason}
-
 ```
 于是Promise神奇的值的穿透也没有那么黑魔法，只不过是then默认参数就是把值往后传或者抛
 
