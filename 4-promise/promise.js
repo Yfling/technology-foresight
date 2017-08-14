@@ -12,24 +12,38 @@ function Promise(executor) {
   that.onResolvedCallback = [];  // Promise resolve时的回调函数集，因为在Promise结束之前可能有多个回调添加到它上面
   that.onRejectedCallback = [];  // Promise reject时的回掉函数集，因为在Promise结束之前可能有多个回调添加到它上面
 
+  //
   function resolve(value) {
-    if (that.status === 'pending') {
-      that.status = 'resolved';
-      that.data = value;
+    // 如果是Promise,直接调用then方法
+    if (value instanceof Promise) {
+      return value.then(resolve, reject);
+    }
 
-      for (var i = 0; i < that.onResolvedCallback.length; i++) {
-        that.onResolvedCallback[i](value);
+    // 异步执行所有的回调函数
+    setTimeout(function() {
+      if (that.status === 'pending') {
+        that.status = 'resolved';
+        that.data = value;
+
+        for (var i = 0; i < that.onResolvedCallback.length; i++) {
+          that.onResolvedCallback[i](value);
+        }
       }
-    }
+    })
   }
+
+  //
   function reject(reason) {
-    if (that.status === 'pending') {
-      that.status = 'reject';
-      that.data = reason;
-      for (var i = 0; i < that.onRejectedCallback.length; i++) {
-        that.onRejectedCallback[i](reason);
+    // 异步执行所有的回调函数
+    setTimeout(function() {
+      if (that.status === 'pending') {
+        that.status = 'reject';
+        that.data = reason;
+        for (var i = 0; i < that.onRejectedCallback.length; i++) {
+          that.onRejectedCallback[i](reason);
+        }
       }
-    }
+    })
   }
 
   // 考虑到执行executor的过程中有可能出错，所以我们用try/catch块给包起来，并且在出错后以catch到的值reject掉这个Promise
@@ -59,34 +73,40 @@ Promise.prototype.then = function(onResolved, onRejected) {
     // 如果promise1(此处即为this/self)的状态已经确定并且是resolved，我们调用onResolved
     // 因为考虑到有可能throw，所以我们将其包在try/catch块里
     return promise2 = new Promise(function(resolve, reject) {
-      try {
-        var x = onResolved(that.data);
-        // 如果onResolved的返回值是一个Promise对象，直接取它的结果做为promise2的结果
-        if (x instanceof Promise) {
-          x.then(resolve, reject);
+      // 异步执行onResolved
+      setTimeout(function() {
+        try {
+          var x = onResolved(that.data);
+          // 如果onResolved的返回值是一个Promise对象，直接取它的结果做为promise2的结果
+          if (x instanceof Promise) {
+            x.then(resolve, reject);
+          }
+          else {
+            resolve(x);  // 否则，以它的返回值作为promise2的结果
+          }
         }
-        else {
-          resolve(x);  // 否则，以它的返回值作为promise2的结果
+        catch (e) {
+          reject(e);  // 如果出错，以捕获到的错误作为primise2的结果
         }
-      }
-      catch (e) {
-        reject(e);  // 如果出错，以捕获到的错误作为primise2的结果
-      }
+      })
     })
   }
 
   if (that.status === 'rejected') {
     return promise2 = new Promise(function(resolve, reject) {
-      try {
-        var x = onRejected(that.data);
-        if (x instanceof Promise) {
-          x.then(resolve, reject);
+      // 异步执行onRejected
+      setTimeout(function() {
+        try {
+          var x = onRejected(that.data);
+          if (x instanceof Promise) {
+            x.then(resolve, reject);
+          }
+          // 此处没有else?
         }
-        // 此处没有else?
-      }
-      catch (e) {
-        reject(e);
-      }
+        catch (e) {
+          reject(e);
+        }
+      })
     })
   }
 
@@ -94,6 +114,8 @@ Promise.prototype.then = function(onResolved, onRejected) {
   // 只能等到Promise的状态确定后，才能确实如何处理。
   // 所以我们需要把我们的**两种情况**的处理逻辑做为callback放入promise1(此处即this/self)的回调数组里
   // 逻辑本身跟第一个if块内的几乎一致，此处不做过多解释
+
+  // 这里之所以没有异步执行，是因为这些函数必然会被resolve或reject调用，而resolve或reject函数里的内容已是异步执行，构造函数里的定义
   if (that.status === 'pending') {
     return promise2 = new Promise(function(resolve, reject) {
       that.onResolvedCallback.push(function(value) {
