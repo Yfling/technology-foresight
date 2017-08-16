@@ -16,9 +16,11 @@ export default {
   },
   methods: {
     addOne() {
+      // 通过this.$store.commit触发main.js里面的increment方法
       this.$store.commit('increment', this.price)
     },
     minusOne() {
+      // 通过this.$store.commit触发main.js里面的decrement方法
       this.$store.commit('decrement', this.price)
     }
   },
