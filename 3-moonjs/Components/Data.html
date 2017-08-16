@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<div id="app3">
+	  <counter-component></counter-component>
+	  <counter-component></counter-component>
+	</div>
+
+	<!-- Data:
+	当组件需要具有local state(本地状态)时，该data选项将正常工作。
+	！！注意：在组件上，data选项必须是一个函数。
+	这允许每个组件具有新的本地状态，而与其他组件无关。这个函数应该返回一个对象。
+
+	此示例显示计数器组件。每个计数器具有不同的单个计数，其通过其相应的按钮增加。
+	您可以看到，组件会有数据，方法和get / set方法！ -->
+
+
+<script src="https://unpkg.com/moonjs"></script>
+<script>
+Moon.component("counter-component", {
+  template: `<div>
+					    <p>Count: {{count}}</p>
+					    <button m-on:click="increment">Increment</button>
+					   </div>`,
+  data: function() {
+    return {
+      count: 0
+    }
+  },
+  methods: {
+    increment: function() {
+      this.set("count", this.get("count") + 1);
+    }
+  }
+});
+
+const app3 = new Moon({
+  el: "#app3"
+});
+</script>
+</body>
+</html>

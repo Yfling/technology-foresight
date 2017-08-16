@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<div id="app10">
+	  <slot-component>
+	    <h1>Default Slot Content. Parent data: {{parentMsg}}</h1>
+	    <p slot="paragraph">Named slot content.</p>
+	  </slot-component>
+	</div>
+	<!-- 当您有一个组件需要分发传递给它的内容时，尝试使用道具来实现它时，它会变得凌乱。
+	相反，您可以为组件提供HTML，组件可以相应地进行分发。
+
+	为了做到这一点，月亮有插槽。
+	A可以在slot任何具有可选name属性的元素中。
+	当创建一个新的组件实例时，它的内容是分布式的。没有slot属性的任何元素将被放入默认的插槽中，并且具有该slot属性的任何元素将被放在它们各自的插槽中。 -->
+<script src="https://unpkg.com/moonjs"></script>
+<script>
+Moon.component('slot-component', {
+  template: `<div>
+    <slot></slot>
+    <h5>Component Content.</h5>
+    <slot name="paragraph"></slot>
+  </div>`
+});
+
+const app10 = new Moon({
+  el: "#app10",
+  data: {
+    parentMsg: "Parent Data"
+  }
+});
+</script>
+</body>
+</html>

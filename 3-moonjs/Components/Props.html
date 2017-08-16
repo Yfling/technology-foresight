@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<div id="app2">
+	  <my-component content="{{parentMsg}}"></my-component>
+	</div>
+
+	<!-- 控制台输入app2.set('parentMsg', 'New Parent Data') 会触发数据的变动-->
+	<!-- 2.props
+	组件无法访问其父级的数据。要从父级传递数据，可以使用props。
+	在组件选项中定义它们，您将可以通过{{mustache}}模板访问它们。
+	您可以将它们作为属性来传递。 -->
+
+
+<script src="https://unpkg.com/moonjs"></script>
+<script>
+	Moon.component('my-component', {
+	  props: ['content'],
+	  template: "<p>Data from Parent: {{content}}</p>"
+	});
+
+	const app2 = new Moon({
+	  el: "#app2",
+	  data: {
+	    parentMsg: "Parent Data!!"
+	  }
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<div id="app4">
+	  <h5>Total Count: {{total}}</h5>
+
+	  <counter-child-component m-on:increment="incrementTotal">
+	  </counter-child-component>
+
+	  <counter-child-component m-on:increment="incrementTotal">
+	  </counter-child-component>
+	</div>
+
+	<!-- 月亮像Vue和React一样，允许父子组件的简单通讯：道歉，事件发生。（props down, events up）
+
+	父组件与子组件通讯：你可以使用props。
+	子组件与父组件通讯：使用event system。
+
+	虽然事件通常是一个实例的本地，但是Moon可以在创建组件的时候，通过创建一个组件来允许子组件同emit一个event来传达给父组件数据，
+
+	使用类似的东西：在发出子事件时，将调用父对象的方法。m-on:eventName="parentMethod"
+
+	以下是两个本地孩子在父项上增加单个计数的示例： -->
+
+
+<script src="https://unpkg.com/moonjs"></script>
+<script>
+Moon.component("counter-child-component", {
+  template: `<div>
+    <p>Count: {{count}}</p>
+    <button m-on:click="increment">Increment</button>
+  </div>`,
+  data: function() {
+    return {
+      count: 0
+    }
+  },
+  methods: {
+    increment: function() {
+      this.set("count", this.get("count") + 1);
+      this.emit("increment");
+    }
+  }
+});
+
+const app4 = new Moon({
+  el: "#app4",
+  data: {
+    total: 0
+  },
+  methods: {
+    incrementTotal: function() {
+      this.set("total", this.get("total") + 1);
+    }
+  }
+});
+</script>
+</body>
+</html>
