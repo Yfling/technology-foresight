@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="app1">
+	<h1 id="{{id}}">{{data1}}</h1>
+	<!-- <h1>{{method(data2.foo.bar[5].baz)}}</h1> -->
+	<!-- 在内部会被转移为：instance.callMethod('method', [instance.get('data').foo.bar[5].baz]); -->
+	<!-- 渲染html文档和vue是一样的，这里需要用到m-html -->
+</div>
+
+<script src="https://unpkg.com/moonjs"></script>
+<script>
+Moon.component('my-component', {
+  template: "<p>This is a Component!</p>"
+});
+
+const app1 = new Moon({
+	el: "#app1",
+  data: {
+    data1: 'hello moon',
+		data2: {
+			foo: {
+				bar: [1,2,3,4,5]
+			}
+		}
+  }
+});
+
+</script>
+</body>
+</html>
