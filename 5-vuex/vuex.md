@@ -232,7 +232,7 @@ export default {
 ```
 这样一个demo就算完成
 效果图：
-
+![](https://github.com/Yfling/technology-foresight/blob/master/5-vuex/img/2017-08-16%2017_41_41.gif?raw=true)
 在前面，我们使用mutations来做数据交互的，这里同样也可以使用actions,更改后的代码如下：
 main.js
 ``` javascript
