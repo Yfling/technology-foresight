@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Moon Examples | TodoMVC">
+    <meta name="author" content="Kabir Shah">
+
+    <title>Moon | Todo MVC</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/todomvc-app-css@2.0.6/index.css">
+    <style>
+      [m-mask] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="todoapp" m-mask>
+      <header class="header">
+        <h1>todos</h1>
+        <input class="new-todo"
+          autofocus='autofocus' autocomplete="off"
+          placeholder="What needs to be done?"
+          m-model="newTodo"
+          m-on:keyup.enter="addTodo">
+      </header>
+
+      <section class="main" m-if="todos.length !== 0">
+        <input class="toggle-all" type="checkbox" m-model="done">
+        <ul class="todo-list">
+          <li m-for="todo,index in filtered" m-literal:class="{todo: true, editing: todo === editedTodo, completed: todo.completed}">
+            <div class="view">
+              <input class="toggle" type="checkbox" m-model="filtered[index].completed">
+              <label m-on:dblclick="editTodo(todo)">{{todo.content}}</label>
+              <button class="destroy" m-on:click="removeTodo(index)"></button>
+            </div>
+            <input class="edit" type="text" m-model="filtered[index].content" m-on:keyup.enter="updateTodo(index)" m-on:blur="updateTodo(index)" m-on:keyup.esc="discardEdit(index)" m-focus="todo === editedTodo"/>
+          </li>
+        </ul>
+      </section>
+
+      <footer class="footer" m-if="todos.length !== 0">
+        <span class="todo-count">
+          <strong>{{remaining}}</strong> {{pluralize(remaining)}} left
+        </span>
+        <ul class="filters">
+          <li><a href="#/all" m-literal:class="filter == 'all' ? 'selected' : ''">All</a></li>
+          <li><a href="#/active" m-literal:class="filter == 'active' ? 'selected' : ''">Active</a></li>
+          <li><a href="#/completed" m-literal:class="filter == 'completed' ? 'selected' : ''">Completed</a></li>
+        </ul>
+        <button class="clear-completed" m-on:click="removeCompleted">
+          Clear completed
+        </button>
+      </footer>
+
+    </section>
+
+    <footer class="info">
+      <p>Double-click to edit a todo</p>
+      <p>Written by <a href="https://kabir.ml">Kabir Shah</a></p>
+      <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+    </footer>
+
+    <script src="./moon.js"></script>
+<script>
+
+var KEY = 'todos-moon';
+
+// Storage for getting data from local storage
+var storage = {
+  fetch: function() {
+    // Fetch data from localStorage
+    return JSON.parse(localStorage.getItem(KEY) || '[]');
+  },
+  save: function(todos) {
+    // Save todos to localStorage
+    localStorage.setItem(KEY, JSON.stringify(todos));
+  }
+}
+
+// Setup some filters that can filter a list of todos
+var filters = {
+  all: function(todos) {
+    return todos;
+  },
+  completed: function(todos) {
+    var filtered = [];
+
+    for(var i = 0; i < todos.length; i++) {
+      var todo = todos[i];
+      if(todo.completed === true) {
+        filtered.push(todo);
+      }
+    }
+
+    return filtered;
+  },
+  active: function(todos) {
+    var filtered = [];
+
+    for(var i = 0; i < todos.length; i++) {
+      var todo = todos[i];
+      if(todo.completed === false) {
+        filtered.push(todo);
+      }
+    }
+    return filtered;
+  }
+}
+
+// Register Custom `esc` Keycode Modifier
+Moon.config.keyCodes({
+  esc: 27
+});
+
+// A custom directive used to focus an element
+Moon.directive("focus", function(el, val, vdom) {
+  if(val) {
+    el.focus();
+  }
+});
+
+// Setup moon
+var app = new Moon({
+  el: ".todoapp",
+  data: {
+    newTodo: '',
+    editedTodo: null,
+    cachedEdit: null,
+    filter: 'all',
+    todos: storage.fetch()
+  },
+  methods: {
+    addTodo: function() {
+      // Add a new todo
+      var todos = this.get("todos");
+      var newTodo = this.get("newTodo");
+
+      if(newTodo.length !== 0 && newTodo.trim() !== "") {
+        todos.push({
+          id: todos.length,
+          content: newTodo,
+          completed: false
+        });
+
+        this.set('todos', todos);
+      }
+
+      this.set("newTodo", "");
+    },
+    removeTodo: function(index) {
+      // Remove a todo at a certain index
+      var todos = this.get('todos');
+      todos.splice(index, 1);
+      this.set('todos', todos);
+    },
+    editTodo: function(todo) {
+      // Setup the `edited todo`
+      this.set('cachedEdit', todo.content);
+      this.set('editedTodo', todo);
+    },
+    updateTodo: function(index) {
+      // Update a certain todo by index
+      this.set('editedTodo', null);
+      this.set('cachedEdit', null);
+    },
+    discardEdit: function(index) {
+      // Discard the edited todo
+      var todos = this.get('todos');
+      todos[index].content = this.get('cachedEdit');
+      this.set('editedTodo', null);
+      this.set('cachedEdit', null);
+      this.set('todos', todos);
+    },
+    removeCompleted: function() {
+      // Remove all completed todos
+      var todos = this.get('todos');
+
+      var i = todos.length;
+      while(i-- !== 0) {
+        if(todos[i].completed === true) {
+          todos.splice(i, 1);
+        }
+      }
+
+      this.set('todos', todos);
+    },
+    pluralize: function(num) {
+      return num === 1 ? 'item' : 'items'
+    }
+  },
+  computed: {
+    remaining: {
+      get: function() {
+        // Get the length of all active todos
+        return filters.active(this.get('todos')).length;
+      }
+    },
+    filtered: {
+      get: function() {
+        // Returns todos by using the current filter
+        return filters[this.get('filter')](this.get('todos'));
+      },
+      set: function() {
+        this.set('todos', this.get('todos'));
+      }
+    },
+    done: {
+      get: function() {
+        // Returns true if none are remaining
+        return this.get('remaining') === 0;
+      },
+      set: function(val) {
+        // Marks all todos as completed or not completed
+        var todos = this.get('todos');
+        for(var i = 0; i < todos.length; i++) {
+          todos[i].completed = val;
+        }
+        this.set('todos', todos);
+      }
+    }
+  }
+});
+
+// Listen for hashchange to update the current filter
+window.addEventListener("hashchange", function() {
+  app.set('filter', window.location.hash.slice(2));
+});
+
+// Save todos to storage before user leaves
+window.addEventListener("beforeunload", function() {
+  storage.save(app.get('todos'));
+});
+
+</script>
+  </body>
+</html>
