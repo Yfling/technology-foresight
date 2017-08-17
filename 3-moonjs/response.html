@@ -5,34 +5,42 @@
 	<title>Document</title>
 </head>
 <body>
-	<div id="app1">
-		<h1 m-randcolr>this is a Example header 1.</h1>
-		<h2 m-randcolr>this is a Example header 2.</h2>
-		<h3 m-randcolr>this is a Example header 3.</h3>
-		<h4 m-randcolr>this is a Example header 4.</h4>
-		<p m-randcolr>this is a Example header p.</p>
-	</div>
+<div id="compiler" class="example">
+	<textarea m-on:input="compile"></textarea>
+	<pre>
+		<code data-nohighlight="true" m-literal:style="'color: ' + (err ? 'red' : '')">
+			{{compiled}}
+		</code>
+	</pre>
+</div>
 
-<script src="https://unpkg.com/moonjs"></script>
+
+<script src="./moon.js"></script>
 <script>
-const app1 = new Moon({
-  el: "#app1",
+new Moon({
+  el: "#compiler",
   data: {
-    color: "blue",
-		msg: 'fz'
+    compiled: function() {console},
+    err: false,
+  },
+  methods: {
+    compile: function(event) {
+      var app = this;
+      this.set('err', false);
+      console.error = function(msg) {
+        app.set('compiled', msg)
+        app.set('err', 'true');
+      }
+      var textareaVal = event.target.value;
+      if(textareaVal) {
+        var val = Moon.compile(textareaVal);
+        if(!this.get('err')) {
+          this.set('compiled', val);
+          this.set('err', false);
+        }
+      }
+    }
   }
-});
-Moon.directive('randcolor', (el, val) => {
-	let s = setTimeout(() => {
-		let text = el.textContent;
-		let html = ''；
-		for (let i = 0; i < text.length; i++) {
-			let color = "#" + ((1 << 24) * Math.random() | 0).toString(16);
-			html += '<span style = "color: ' + color + '">' + text[i] + '</span>';
-		}
-		el.innerHTML = html;
-		clearTimeout(s);
-	}, 10)
 });
 </script>
 </body>
