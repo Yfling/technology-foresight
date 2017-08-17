@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app1">
+		<h1 m-randcolr>this is a Example header 1.</h1>
+		<h2 m-randcolr>this is a Example header 2.</h2>
+		<h3 m-randcolr>this is a Example header 3.</h3>
+		<h4 m-randcolr>this is a Example header 4.</h4>
+		<p m-randcolr>this is a Example header p.</p>
+	</div>
+
+<script src="https://unpkg.com/moonjs"></script>
+<script>
+const app1 = new Moon({
+  el: "#app1",
+  data: {
+    color: "blue",
+		msg: 'fz'
+  }
+});
+Moon.directive('randcolor', (el, val) => {
+	let s = setTimeout(() => {
+		let text = el.textContent;
+		let html = ''；
+		for (let i = 0; i < text.length; i++) {
+			let color = "#" + ((1 << 24) * Math.random() | 0).toString(16);
+			html += '<span style = "color: ' + color + '">' + text[i] + '</span>';
+		}
+		el.innerHTML = html;
+		clearTimeout(s);
+	}, 10)
+});
+</script>
+</body>
+</html>
