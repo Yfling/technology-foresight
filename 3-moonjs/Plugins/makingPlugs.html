@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app1">
+		<example></example>
+	</div>
+
+<script src="https://unpkg.com/moonjs"></script>
+<script>
+// 插件必须是一个带有init方法的对象。调用时Moon.use调用此方法，并将其Moon作为参数提供。
+const plugin = {
+  init: function(Moon) {
+    Moon.component("example", {
+      template: "<h1>Example Component</h1>"
+    });
+  }
+}
+// 使用：包括插件脚本，并使用全局Moon.use方法。
+Moon.use(plugin);
+
+// new Moon必须放在最后
+const app1 = new Moon({
+	el: "#app1",
+});
+
+</script>
+</body>
+</html>
