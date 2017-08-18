@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div id="app">
+  <!-- <p>{{msg}}</p> -->
+  <p>{{reversedMsg(msg)}}</p>
+  <p>{{count}}</p>
+</div>
+
+
+<script src="https://unpkg.com/moonjs"></script>
+<script>
+const app = new Moon({
+  el: "#app",
+  data: {
+    msg: "Hello Moon!",
+    count: 0
+  },
+  // computed: {
+  //   reversedMsg: {
+  //     get: function() {
+  //       return this.get("msg").split("").reverse().join("");
+  //     }
+  //   }
+  // },
+  methods: {
+    reversedMsg: function() {
+      return this.get("msg").split("").reverse().join("");
+    }
+  }
+});
+
+app.set("msg", "New Message"); // Will cause `reversedMsg` to evaluate
+app.set("count", 1); // `reversedMsg` will be cached
+</script>
+</body>
+</html>

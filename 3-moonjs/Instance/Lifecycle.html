@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div id="app">
+     <p>{{ message }}</p>
+</div>
+
+
+
+<script src="https://unpkg.com/moonjs"></script>
+<script>
+new Moon({
+  el: '#app',
+  data: {
+      message : "xuxiao is boy"
+  },
+  hooks: {
+    init: function() {
+      console.log('init')
+      // called when first creating
+    },
+    mounted: function() {
+      console.log('mounted')
+      // called when element is mounted and the first build has been run
+    },
+    updated: function() {
+      console.log('updated')
+
+      // called every time data is updated
+    },
+    destroyed: function() {
+      console.log('destroyed')
+
+      // called when it is destroyed, the component might be removed
+      // from the DOM
+    }
+  }
+});
+
+</script>
+</body>
+</html>

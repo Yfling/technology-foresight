@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+ <div id="app4">
+   <p>{{reverse(msg)}}</p>
+ </div>
+
+
+  <script src="https://unpkg.com/moonjs"></script>
+  <script>
+ const app4 = new Moon({
+   el: "#app4",
+   data: {
+     msg: "Hello Moon!"
+   },
+   methods: {
+     reverse: function(str) {
+       return str.split("").reverse().join("");
+     }
+   }
+ });
+
+ //app4.set('msg', 'racecaR')
+  </script>
+</body>
+</html>

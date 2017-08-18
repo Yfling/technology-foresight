@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+  <div id="app3">
+    <p>{{msg}}</p>
+  </div>
+
+
+  <script src="https://unpkg.com/moonjs"></script>
+  <script>
+
+
+const app3 = new Moon({
+  el: "#app3",
+  data: {
+    msg: "Hello Moon!"
+  },
+  methods: {
+    changeMessage: function(msg) {
+      this.set('msg', msg);
+    }
+  }
+});
+
+app3.callMethod('changeMessage', ['New Message!']);
+// app3.callMethod('changeMessage', ['Calling a Method!']);
+  </script>
+</body>
+</html>

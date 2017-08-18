@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+
+
+<script src="https://unpkg.com/moonjs"></script>
+<script>
+const app = new Moon({
+  data: {
+    count: 0
+  },
+  methods: {
+    increment: function() {
+      this.set("count", this.get("count") + 1);
+      // console.log(this.get("count"));
+    }
+  }
+});
+
+app.callMethod("increment");
+// count => 1
+// console.log(this.count)
+</script>
+</body>
+</html>

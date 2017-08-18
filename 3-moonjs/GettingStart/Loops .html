@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div id="app6">
+  <ul>
+    <li m-for="item in list">{{item}}</li>
+  </ul>
+</div>
+
+  <script src="https://unpkg.com/moonjs"></script>
+  <script>
+const app6 = new Moon({
+  el: "#app6",
+  data: {
+    list: ['Item - 1', 'Item - 2', 'Item - 3', 'Item - 4']
+  }
+});
+
+// app6.set('list', ['New Item', 'Another Item'])
+</script>
+</body>
+</html>
