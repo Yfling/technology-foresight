@@ -1,6 +1,7 @@
 # 总结
 ---
 为什么要写moon:在开发中注意到程序的性能问题
+![为什么写Moon](https://github.com/Yfling/technology-foresight/blob/master/3-moonjs/img/DingTalk20170818150023.png?raw=true)
 
 ## 特性预览：
 - ⚡️它使用虚拟DOM的版本，但是智能地标记静态节点并跳过它们，并且只更新已更改的DOM部分。
@@ -58,4 +59,4 @@ instance.set('dataName', 'newData'), newData可以是函数，也可以是固定
 2. 函数方法的调用
 
 适用对象：
-![]()
+![适用对象](https://github.com/Yfling/technology-foresight/blob/master/3-moonjs/img/DingTalk20170818145704.png?raw=true)
