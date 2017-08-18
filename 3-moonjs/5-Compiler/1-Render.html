@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<p id="text"></p>
+	</div>
+
+<script src="https://unpkg.com/moonjs"></script>
+<script>
+// 在moon挂载之前渲染HTML：
+// Moon具有内置的自定义HTML编译器来生成渲染功能。
+// 这意味着在Moon可以挂载之前，模板必须经过Moon的HTML编译器才能变成简单的javascript。
+// 渲染功能在每个更新中都被调用，它给Moon提供了一个新版本的轻量级虚拟DOM。
+// 这些渲染功能可以在一个render选项中定义（对于高级用户）。
+// 他们使用“HyperMoon”语法，该语法应为虚拟DOM引擎提供自定义元数据。
+new Moon({
+	el: '#app',
+  render: function(m) {
+    return m('h1', {attrs: {}}, {shouldRender: false}, [m("#text", {shouldRender: false}, "Hello Moon!")]);
+    // same as <h1>Hello Moon!</h1>
+  }
+});
+
+
+// Moon.compile("<p>Some HTML</p>");
+
+</script>
+</body>
+</html>

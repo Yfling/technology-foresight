@@ -6,8 +6,15 @@
 ## 特性预览：
 - ⚡️它使用虚拟DOM的版本，但是智能地标记静态节点并跳过它们，并且只更新已更改的DOM部分。
 - 💎它提供了一个简单好用的API，非常类似于 Vue。完成指令，反应性DOM更新，计算属性等。
-- 🎉只有5kb！
+- 🎉只有6kb！
 - 🔨它具有内置的组件系统，可以让您从不同的组件中组合UI。
+
+## 文件大小
+- Moon - 6kb
+- Mithril - 8kb
+- Vue - 25.86kb
+- React + React DOM - 43kb
+- Angular 2 - 111kb
 
 ## Benchmarks
 Here are the DBMonster results (higher is better):
