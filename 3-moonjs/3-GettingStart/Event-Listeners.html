@@ -18,6 +18,7 @@ const app7 = new Moon({
   methods: {
     increment: function() {
       // Increment the count by one
+      // diff：需要通过set触发函数更改
       this.set('count', this.get('count') + 1);
     }
   }

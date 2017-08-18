@@ -7,9 +7,9 @@
 <body>
 <div id="app1">
 	<h1 id="{{id}}">{{data1}}</h1>
-	<!-- <h1>{{method(data2.foo.bar[5].baz)}}</h1> -->
-	<!-- 在内部会被转移为：instance.callMethod('method', [instance.get('data').foo.bar[5].baz]); -->
-	<!-- 渲染html文档和vue是一样的，这里需要用到m-html -->
+<!-- 	<h1>{{method(data2.foo.bar[5].baz)}}</h1>
+	在内部会被转移为：instance.callMethod('method', [instance.get('data').foo.bar[5].baz]);
+	渲染html文档和vue是一样的，这里需要用到m-html -->
 </div>
 
 <script src="https://unpkg.com/moonjs"></script>
@@ -19,7 +19,7 @@ Moon.component('my-component', {
 });
 
 const app1 = new Moon({
-	el: "#app1",
+  el: "#app1",
   data: {
     data1: 'hello moon',
 		data2: {

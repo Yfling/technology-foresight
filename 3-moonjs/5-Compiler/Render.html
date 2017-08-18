@@ -5,18 +5,22 @@
 	<title>Document</title>
 </head>
 <body>
-
+	<div id="app">
+		<p id="text"></p>
+	</div>
 
 <script src="https://unpkg.com/moonjs"></script>
 <script>
 new Moon({
+	el: '#app',
   render: function(m) {
-    return m('h1', {attrs: {}}, {shouldRender: false}, m("#text", {shouldRender: false}, "Hello Moon!"));
+    return m('h1', {attrs: {}}, {shouldRender: false}, [m("#text", {shouldRender: false}, "Hello Moon!")]);
     // same as <h1>Hello Moon!</h1>
   }
 });
 
-Moon.compile("<p>Some HTML</p>");
+
+// Moon.compile("<p>Some HTML</p>");
 
 </script>
 </body>

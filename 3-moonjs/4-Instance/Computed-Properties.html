@@ -6,8 +6,7 @@
 <body>
 <div id="app">
   <!-- <p>{{msg}}</p> -->
-  <p>{{reversedMsg(msg)}}</p>
-  <p>{{count}}</p>
+  <p>{{reversedMsg}}</p>
 </div>
 
 
@@ -17,24 +16,19 @@ const app = new Moon({
   el: "#app",
   data: {
     msg: "Hello Moon!",
-    count: 0
   },
-  // computed: {
-  //   reversedMsg: {
-  //     get: function() {
-  //       return this.get("msg").split("").reverse().join("");
-  //     }
-  //   }
-  // },
-  methods: {
-    reversedMsg: function() {
-      return this.get("msg").split("").reverse().join("");
+  computed: {
+    reversedMsg: {
+      get: function() {
+        //diff:用get获取数据
+        return this.get("msg").split("").reverse().join("");
+        console.log('asds')
+        console.log(this.get('msg'))
+      }
     }
   }
 });
-
-app.set("msg", "New Message"); // Will cause `reversedMsg` to evaluate
-app.set("count", 1); // `reversedMsg` will be cached
+//app.set("msg", "New Message"); // Will cause `reversedMsg` to evaluate
 </script>
 </body>
 </html>

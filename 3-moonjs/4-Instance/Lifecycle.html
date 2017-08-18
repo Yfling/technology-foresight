@@ -12,7 +12,7 @@
 
 <script src="https://unpkg.com/moonjs"></script>
 <script>
-new Moon({
+const app = new Moon({
   el: '#app',
   data: {
       message : "xuxiao is boy"
@@ -27,19 +27,20 @@ new Moon({
       // called when element is mounted and the first build has been run
     },
     updated: function() {
+        // app.set('message', 'racecaR')
       console.log('updated')
 
       // called every time data is updated
     },
     destroyed: function() {
       console.log('destroyed')
-
+      app.destroy();
       // called when it is destroyed, the component might be removed
       // from the DOM
     }
   }
 });
-
+// app.set('message', 'racecaR')
 </script>
 </body>
 </html>

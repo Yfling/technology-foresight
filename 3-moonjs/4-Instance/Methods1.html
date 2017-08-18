@@ -4,12 +4,13 @@
     <title></title>
 </head>
 <body>
-
-
-
+  <div id="app">
+    <p>{{count}}</p>
+  </div>
 <script src="https://unpkg.com/moonjs"></script>
 <script>
 const app = new Moon({
+  el: '#app',
   data: {
     count: 0
   },
@@ -20,8 +21,8 @@ const app = new Moon({
     }
   }
 });
-
-app.callMethod("increment");
+// diff:通过callMethod方法调用函数，触发数据改变
+// app.callMethod("increment");
 // count => 1
 // console.log(this.count)
 </script>
