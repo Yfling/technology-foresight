@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title><%= htmlWebpackPlugin.options.title %></title>
-  <script type="text/javascirpt" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+  <script type="text/javascript">
+    <%=
+    htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)
+    %>
+  </script>
 </head>
 <body>
-  <%= htmlWebpackPlugin.options.date %>
-  <script type="text/javascirpt" src="<%= htmlWebpackPlugin.files.chunks.a.entry %>"></script>
+
   <!-- 我是一行注释 -->
 </body>
 </html>

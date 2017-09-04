@@ -3,7 +3,9 @@ var htmlwebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
     main: './src/script/main.js',
-    a: './src/script/a.js'
+    a: './src/script/a.js',
+    b: './src/script/b.js',
+    c: './src/script/c.js',
   },
   output: {
     path: __dirname+'/dist/js',
@@ -12,15 +14,25 @@ module.exports = {
   },
   plugins: [
     new htmlwebpackPlugin({
-      filename: 'index.html',
+      filename: 'a.html',
       template: 'index.html',
-      inject: false,
-      title: 'webpack is good',
-      date: new Date(),
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true
-      }
-    })
+      inject: 'body',
+      title: 'this ia a.html',
+      chunks: ['main', 'a']
+    }),
+    new htmlwebpackPlugin({
+      filename: 'b.html',
+      template: 'index.html',
+      inject: 'body',
+      title: 'this ia b.html',
+      chunks: ['b']
+    }),
+    new htmlwebpackPlugin({
+      filename: 'c.html',
+      template: 'index.html',
+      inject: 'body',
+      title: 'this is c.html',
+      chunks: ['c']
+    }),
   ]
 }
