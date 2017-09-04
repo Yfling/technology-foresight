@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>webpack is awesome!</title>
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <script type="text/javascirpt" src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </head>
 <body>
-  <script type="text/javascript" src="bundle.js"></script>
+  <%= htmlWebpackPlugin.options.date %>
+  <script type="text/javascirpt" src="<%= htmlWebpackPlugin.files.chunks.a.entry %>"></script>
+  <!-- 我是一行注释 -->
 </body>
 </html>

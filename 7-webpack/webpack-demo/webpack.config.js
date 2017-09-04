@@ -7,13 +7,20 @@ module.exports = {
   },
   output: {
     path: __dirname+'/dist/js',
-    filename: '[name]-[chunkhash].js'      //此处为修改的地方
+    filename: '[name]-[chunkhash].js',     //此处为修改的地方
+    publicPath: 'http://cdn.com/'
   },
   plugins: [
     new htmlwebpackPlugin({
-      filename: 'index-[hash].html',
+      filename: 'index.html',
       template: 'index.html',
-      inject: 'head'
+      inject: false,
+      title: 'webpack is good',
+      date: new Date(),
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true
+      }
     })
   ]
 }
