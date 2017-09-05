@@ -1,4 +1,5 @@
 var htmlwebpackPlugin = require('html-webpack-plugin');
+var path = require('path');
 
 module.exports = {
   entry: './src/app.js',
@@ -11,8 +12,8 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude:__dirname +'./node_modules/',
-        include:__dirname +'./src/',
+        exclude:path.resolve(__dirname,'/node_modules/'),
+        include:path.resolve(__dirname,'/src'),
         options: {
           'presets': ['env']
         }
