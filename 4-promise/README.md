@@ -77,6 +77,8 @@ function Promise(executor) {
 }
 ```
 #### 2.实现then方法
+作用：为Promise 实例添加状态改变时的回调函数。
+参数：then方法的第一个参数是resolved状态的回调函数，第二个参数（可选）是rejected状态的回调函数。
 ```javascript
 /**
  * then方法
